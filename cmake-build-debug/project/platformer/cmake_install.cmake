@@ -1,4 +1,4 @@
-# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/gameProgrammingExercise1/SimpleRenderEngineProject/project/platformer
+# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/project/platformer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -17,6 +17,7 @@ bin/
 
 x64/
 build/
+cmake-build-debug/
 [Bb]in/
 [Oo]bj/
 

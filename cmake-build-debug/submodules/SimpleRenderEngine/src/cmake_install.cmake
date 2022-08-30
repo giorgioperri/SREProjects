@@ -1,4 +1,4 @@
-# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/gameProgrammingExercise1/SimpleRenderEngineProject/submodules/SimpleRenderEngine/src
+# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/gameProgrammingExercise1/SimpleRenderEngineProject/cmake-build-debug/submodules/SimpleRenderEngine/src/libSRE.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/cmake-build-debug/submodules/SimpleRenderEngine/src/libSRE.a")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libSRE.a" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libSRE.a")
     execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libSRE.a")
@@ -46,6 +46,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/gameProgrammingExercise1/SimpleRenderEngineProject/submodules/SimpleRenderEngine/src/../include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/src/../include/")
 endif()
 

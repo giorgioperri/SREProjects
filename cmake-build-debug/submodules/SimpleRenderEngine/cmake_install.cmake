@@ -1,4 +1,4 @@
-# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/gameProgrammingExercise1/SimpleRenderEngineProject/submodules/SimpleRenderEngine
+# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/gameProgrammingExercise1/SimpleRenderEngineProject/cmake-build-debug/submodules/SimpleRenderEngine/submodules/cmake_install.cmake")
-  include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/gameProgrammingExercise1/SimpleRenderEngineProject/cmake-build-debug/submodules/SimpleRenderEngine/src/cmake_install.cmake")
-  include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/gameProgrammingExercise1/SimpleRenderEngineProject/cmake-build-debug/submodules/SimpleRenderEngine/examples/cmake_install.cmake")
+  include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/cmake-build-debug/submodules/SimpleRenderEngine/submodules/cmake_install.cmake")
+  include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/cmake-build-debug/submodules/SimpleRenderEngine/src/cmake_install.cmake")
+  include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/cmake-build-debug/submodules/SimpleRenderEngine/examples/cmake_install.cmake")
 
 endif()
 
