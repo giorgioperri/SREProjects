@@ -1,4 +1,4 @@
-# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/project/particle_system
+# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/project/particle_system
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

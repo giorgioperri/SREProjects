@@ -1,4 +1,4 @@
-# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/exercise_1/SimpleRenderEngineProjectFork/project/Box2DTestbed
+# Install script for directory: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/project/Box2DTestbed
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
