@@ -3,6 +3,9 @@
 
 #include <string>
 #include <vector>
+#include <tuple>
+
+using namespace std;
 
 enum FieldType {
     Button,             // Field has not been uncovered
@@ -24,7 +27,7 @@ class MineSweeper {
 public:
     MineSweeper();
 
-    void initLevel(int size);                           // setup level - randomly position bombs
+    void initLevel(int size);                           // setup level - randomly position bombs - DONE
 
     void print();                                       // print the level to the console
 
@@ -43,6 +46,9 @@ private:
     int bombsNearby(int row, int column);               // Returns the number of bombs nearby (rows and column +/- 1)
 
     // add additional private member fields and functions
+
+    vector<tuple<int,int>> fieldMap;
+    vector<vector<tuple<int,int>>> fieldRows;
 
 };
 #endif
