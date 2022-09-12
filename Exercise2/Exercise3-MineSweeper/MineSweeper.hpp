@@ -3,12 +3,9 @@
 
 #include <string>
 #include <vector>
-<<<<<<< HEAD
-=======
 #include <map>
 
 using namespace std;
->>>>>>> tuple-implementation
 
 enum FieldType {
     Button,             // Field has not been uncovered
@@ -49,9 +46,6 @@ private:
     int bombsNearby(int row, int column);               // Returns the number of bombs nearby (rows and column +/- 1)
 
     // add additional private member fields and functions
-<<<<<<< HEAD
-
-=======
     int _iTake(int row, int column);
     bool _running = false;
     int _size;
@@ -60,7 +54,7 @@ private:
     vector<vector<FieldType>> _field;
     vector<vector<bool>>      _bombs;
     map<FieldType, char> renderMap = {
-            {Button,        'X'},
+            {Button,        '0'},
             {Empty,         'O'},
             {Empty1,        '1'},
             {Empty2,        '2'},
@@ -74,6 +68,5 @@ private:
             {BombUnexploded,'X'},
             {Flag,          '?'},
     };
->>>>>>> tuple-implementation
 };
 #endif

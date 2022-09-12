@@ -2312,13 +2312,6 @@ build Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper/main.cpp.o: CXX
   OBJECT_DIR = Exercise2/CMakeFiles/Exercise2-3.dir
   OBJECT_FILE_DIR = Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper
 
-build Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper/MineSweeper.cpp.o: CXX_COMPILER__Exercise2-3_Debug /Users/giorgioperri/Desktop/ITU/Game$ Programming/Exercises/SimpleRenderEngineProjectFork/Exercise2/Exercise3-MineSweeper/MineSweeper.cpp || cmake_object_order_depends_target_Exercise2-3
-  DEP_FILE = Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper/MineSweeper.cpp.o.d
-  FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=c++14
-  INCLUDES = -I/Users/giorgioperri/Library/Frameworks/SDL2.framework/Headers -I/System/Library/Frameworks -I/Users/giorgioperri/Library/Frameworks/SDL2_image.framework/Headers -I/Users/giorgioperri/Library/Frameworks/SDL2_mixer.framework/Headers -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Box2D/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Lua/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/All/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/ImGuiColorTextEdit" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/imgui" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/glm" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/picojson"
-  OBJECT_DIR = Exercise2/CMakeFiles/Exercise2-3.dir
-  OBJECT_FILE_DIR = Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Exercise2-3
@@ -2327,7 +2320,7 @@ build Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper/MineSweeper.cpp
 #############################################
 # Link the executable Exercise2/Exercise2-3
 
-build Exercise2/Exercise2-3: CXX_EXECUTABLE_LINKER__Exercise2-3_Debug Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper/main.cpp.o Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper/MineSweeper.cpp.o
+build Exercise2/Exercise2-3: CXX_EXECUTABLE_LINKER__Exercise2-3_Debug Exercise2/CMakeFiles/Exercise2-3.dir/Exercise3-MineSweeper/main.cpp.o
   FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
   OBJECT_DIR = Exercise2/CMakeFiles/Exercise2-3.dir
   POST_BUILD = :
@@ -2351,13 +2344,6 @@ build Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper/main_gui.cp
   OBJECT_DIR = Exercise2/CMakeFiles/Exercise2-3-GUI.dir
   OBJECT_FILE_DIR = Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper
 
-build Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper/MineSweeper.cpp.o: CXX_COMPILER__Exercise2-3-GUI_Debug /Users/giorgioperri/Desktop/ITU/Game$ Programming/Exercises/SimpleRenderEngineProjectFork/Exercise2/Exercise3-MineSweeper/MineSweeper.cpp || cmake_object_order_depends_target_Exercise2-3-GUI
-  DEP_FILE = Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper/MineSweeper.cpp.o.d
-  FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F/Users/giorgioperri/Library/Frameworks  -std=c++14
-  INCLUDES = -I/Users/giorgioperri/Library/Frameworks/SDL2.framework/Headers -I/System/Library/Frameworks -I/Users/giorgioperri/Library/Frameworks/SDL2_image.framework/Headers -I/Users/giorgioperri/Library/Frameworks/SDL2_mixer.framework/Headers -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Box2D/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Lua/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/All/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/ImGuiColorTextEdit" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/imgui" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/glm" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/picojson"
-  OBJECT_DIR = Exercise2/CMakeFiles/Exercise2-3-GUI.dir
-  OBJECT_FILE_DIR = Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Exercise2-3-GUI
@@ -2366,7 +2352,7 @@ build Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper/MineSweeper
 #############################################
 # Link the executable Exercise2/Exercise2-3-GUI
 
-build Exercise2/Exercise2-3-GUI: CXX_EXECUTABLE_LINKER__Exercise2-3-GUI_Debug Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper/main_gui.cpp.o Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper/MineSweeper.cpp.o | ../thirdparty/macOS/Lua/lib/liblua.a submodules/SimpleRenderEngine/src/libSRE.a ../thirdparty/macOS/Box2D/lib/libBox2D.a || submodules/SimpleRenderEngine/src/libSRE.a
+build Exercise2/Exercise2-3-GUI: CXX_EXECUTABLE_LINKER__Exercise2-3-GUI_Debug Exercise2/CMakeFiles/Exercise2-3-GUI.dir/Exercise3-MineSweeper/main_gui.cpp.o | ../thirdparty/macOS/Lua/lib/liblua.a submodules/SimpleRenderEngine/src/libSRE.a ../thirdparty/macOS/Box2D/lib/libBox2D.a || submodules/SimpleRenderEngine/src/libSRE.a
   FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
   LINK_LIBRARIES = -Wl,-rpath,/Users/giorgioperri/Library/Frameworks  -framework  OpenGL  -framework  SDL2  -framework Cocoa  -framework  SDL2_image  -framework  SDL2_mixer  ../thirdparty/macOS/Lua/lib/liblua.a  submodules/SimpleRenderEngine/src/libSRE.a  ../thirdparty/macOS/Box2D/lib/libBox2D.a  -framework  OpenGL  -framework  SDL2  -framework Cocoa  -framework  SDL2_image
   LINK_PATH = -F/Users/giorgioperri/Library/Frameworks

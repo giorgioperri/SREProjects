@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "MineSweeper.hpp"
+#include "MineSweeper.cpp"
 
 void ClearScreen(){
     for (int i=0;i<7;i++){

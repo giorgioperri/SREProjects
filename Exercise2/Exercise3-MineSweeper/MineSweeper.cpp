@@ -12,14 +12,6 @@ MineSweeper::MineSweeper() {
     srand(time(nullptr));
 }
 
-<<<<<<< HEAD
-void MineSweeper::initLevel(int size){
-    // todo implement
-}
-
-void MineSweeper::print(){
-    // todo implement
-=======
 void MineSweeper::initLevel(int size) {
     _size = size;
     _nBombs = _size; // totally accurate bomb simulator
@@ -62,7 +54,6 @@ void MineSweeper::print(){
 #endif
 
     }
->>>>>>> tuple-implementation
 }
 
 FieldType MineSweeper::getField(int row, int column){
@@ -74,10 +65,6 @@ bool MineSweeper::isRunning(){
 }
 
 std::string MineSweeper::take(int row, int column){
-<<<<<<< HEAD
-    // todo implement
-    return "";
-=======
     stringstream msg;
 
     // check row range
@@ -110,7 +97,7 @@ std::string MineSweeper::take(int row, int column){
 
     // flood fill
     int nearby = _iTake(row, column);
-
+//    _field[row][column] = (FieldType)(nearby + 1);
     if (nearby > 0)
         msg << "That was close! " << nearby << " bombs nearby." << endl;
     else
@@ -125,7 +112,6 @@ std::string MineSweeper::take(int row, int column){
     }
 
     return msg.str();
->>>>>>> tuple-implementation
 }
 
 int MineSweeper::numberOfBombs() {

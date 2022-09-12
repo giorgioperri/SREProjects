@@ -18,9 +18,9 @@ add_executable(Exercise2-1 Exercise1-HelloPreprocessor/main.cpp)
 
 add_executable(Exercise2-2 Exercise2-SquaredSecrets/main.cpp)
 
-add_executable(Exercise2-3 Exercise3-MineSweeper/main.cpp Exercise3-MineSweeper/MineSweeper.cpp)
+add_executable(Exercise2-3 Exercise3-MineSweeper/main.cpp)
 
-add_executable(Exercise2-3-GUI Exercise3-MineSweeper/main_gui.cpp Exercise3-MineSweeper/MineSweeper.cpp)
+add_executable(Exercise2-3-GUI Exercise3-MineSweeper/main_gui.cpp)
 target_link_libraries(Exercise2-3-GUI ${all_libs})
 
 # copy assets to binary dir
