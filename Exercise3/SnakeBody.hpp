@@ -8,8 +8,8 @@ public:
     SnakeBody(int x, int y);
     ~SnakeBody();
     void moveTo(int x, int y);
-    SnakeBody* next = nullptr;
-    SnakeBody* prev = nullptr;
+    std::shared_ptr<SnakeBody> next = nullptr;
+    std::shared_ptr<SnakeBody> prev = nullptr;
     int x;
     int y;
 private:
@@ -20,7 +20,7 @@ private:
 
 class Body {
 private:
-    SnakeBody *head, *tail;
+    std::shared_ptr<SnakeBody> head, tail;
     int totalSnakeBodies;
 public:
     Body() {
@@ -29,12 +29,10 @@ public:
 
     ~Body() {
         --totalSnakeBodies;
-        delete head;
-        delete tail;
     }
 
-    SnakeBody* addBodyPart(int x, int y) {
-        SnakeBody *bodyPart = new SnakeBody(x, y);
+    std::shared_ptr<SnakeBody> addBodyPart(int x, int y) {
+        std::shared_ptr<SnakeBody> bodyPart = std::make_shared<SnakeBody>(x, y) ;
         bodyPart-> next = nullptr;
         bodyPart-> prev = nullptr;
 

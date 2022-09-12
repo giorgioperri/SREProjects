@@ -21,7 +21,7 @@ void Snake::init(int initialLength, int x, int y, int moveX, int moveY) {   // T
     length = initialLength;
     this->moveX = moveX;
     this->moveY = moveY;
-    body = new Body();
+    body = std::make_shared<Body>(); //new Body();
     snakeHead = body->addBodyPart(x,y);
 
     for (int i = 1; i < length; ++i) {

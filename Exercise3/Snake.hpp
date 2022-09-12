@@ -21,8 +21,10 @@ public:
 
     bool collide();
 private:
-    Body* body = nullptr;
-    SnakeBody* snakeHead = nullptr;
+    //Body* body = nullptr;
+    std::shared_ptr<Body> body = nullptr;
+    //SnakeBody* snakeHead = nullptr;
+    std::shared_ptr<SnakeBody> snakeHead = nullptr;
     int moveX = 1;
     int moveY = 0;
     int length;
