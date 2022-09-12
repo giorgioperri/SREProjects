@@ -2442,6 +2442,131 @@ build Exercise2/CMakeFiles/install/strip.util: CUSTOM_COMMAND Exercise2/all
 build Exercise2/install/strip: phony Exercise2/CMakeFiles/install/strip.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Exercise3-Snake
+
+
+#############################################
+# Order-only phony target for Exercise3-Snake
+
+build cmake_object_order_depends_target_Exercise3-Snake: phony || cmake_object_order_depends_target_SRE
+
+build Exercise3/CMakeFiles/Exercise3-Snake.dir/Level.cpp.o: CXX_COMPILER__Exercise3-Snake_Debug /Users/giorgioperri/Desktop/ITU/Game$ Programming/Exercises/SimpleRenderEngineProjectFork/Exercise3/Level.cpp || cmake_object_order_depends_target_Exercise3-Snake
+  DEP_FILE = Exercise3/CMakeFiles/Exercise3-Snake.dir/Level.cpp.o.d
+  FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F/Users/giorgioperri/Library/Frameworks  -std=c++14
+  INCLUDES = -I/Users/giorgioperri/Library/Frameworks/SDL2.framework/Headers -I/System/Library/Frameworks -I/Users/giorgioperri/Library/Frameworks/SDL2_image.framework/Headers -I/Users/giorgioperri/Library/Frameworks/SDL2_mixer.framework/Headers -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Box2D/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Lua/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/All/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/ImGuiColorTextEdit" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/imgui" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/glm" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/picojson"
+  OBJECT_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+  OBJECT_FILE_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+
+build Exercise3/CMakeFiles/Exercise3-Snake.dir/Snake.cpp.o: CXX_COMPILER__Exercise3-Snake_Debug /Users/giorgioperri/Desktop/ITU/Game$ Programming/Exercises/SimpleRenderEngineProjectFork/Exercise3/Snake.cpp || cmake_object_order_depends_target_Exercise3-Snake
+  DEP_FILE = Exercise3/CMakeFiles/Exercise3-Snake.dir/Snake.cpp.o.d
+  FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F/Users/giorgioperri/Library/Frameworks  -std=c++14
+  INCLUDES = -I/Users/giorgioperri/Library/Frameworks/SDL2.framework/Headers -I/System/Library/Frameworks -I/Users/giorgioperri/Library/Frameworks/SDL2_image.framework/Headers -I/Users/giorgioperri/Library/Frameworks/SDL2_mixer.framework/Headers -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Box2D/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Lua/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/All/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/ImGuiColorTextEdit" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/imgui" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/glm" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/picojson"
+  OBJECT_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+  OBJECT_FILE_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+
+build Exercise3/CMakeFiles/Exercise3-Snake.dir/SnakeBody.cpp.o: CXX_COMPILER__Exercise3-Snake_Debug /Users/giorgioperri/Desktop/ITU/Game$ Programming/Exercises/SimpleRenderEngineProjectFork/Exercise3/SnakeBody.cpp || cmake_object_order_depends_target_Exercise3-Snake
+  DEP_FILE = Exercise3/CMakeFiles/Exercise3-Snake.dir/SnakeBody.cpp.o.d
+  FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F/Users/giorgioperri/Library/Frameworks  -std=c++14
+  INCLUDES = -I/Users/giorgioperri/Library/Frameworks/SDL2.framework/Headers -I/System/Library/Frameworks -I/Users/giorgioperri/Library/Frameworks/SDL2_image.framework/Headers -I/Users/giorgioperri/Library/Frameworks/SDL2_mixer.framework/Headers -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Box2D/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Lua/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/All/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/ImGuiColorTextEdit" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/imgui" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/glm" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/picojson"
+  OBJECT_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+  OBJECT_FILE_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+
+build Exercise3/CMakeFiles/Exercise3-Snake.dir/SnakeGUI.cpp.o: CXX_COMPILER__Exercise3-Snake_Debug /Users/giorgioperri/Desktop/ITU/Game$ Programming/Exercises/SimpleRenderEngineProjectFork/Exercise3/SnakeGUI.cpp || cmake_object_order_depends_target_Exercise3-Snake
+  DEP_FILE = Exercise3/CMakeFiles/Exercise3-Snake.dir/SnakeGUI.cpp.o.d
+  FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F/Users/giorgioperri/Library/Frameworks  -std=c++14
+  INCLUDES = -I/Users/giorgioperri/Library/Frameworks/SDL2.framework/Headers -I/System/Library/Frameworks -I/Users/giorgioperri/Library/Frameworks/SDL2_image.framework/Headers -I/Users/giorgioperri/Library/Frameworks/SDL2_mixer.framework/Headers -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Box2D/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/macOS/Lua/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/thirdparty/All/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/include" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/ImGuiColorTextEdit" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/imgui" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/glm" -I"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/submodules/SimpleRenderEngine/submodules/picojson"
+  OBJECT_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+  OBJECT_FILE_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Exercise3-Snake
+
+
+#############################################
+# Link the executable Exercise3/Exercise3-Snake
+
+build Exercise3/Exercise3-Snake: CXX_EXECUTABLE_LINKER__Exercise3-Snake_Debug Exercise3/CMakeFiles/Exercise3-Snake.dir/Level.cpp.o Exercise3/CMakeFiles/Exercise3-Snake.dir/Snake.cpp.o Exercise3/CMakeFiles/Exercise3-Snake.dir/SnakeBody.cpp.o Exercise3/CMakeFiles/Exercise3-Snake.dir/SnakeGUI.cpp.o | ../thirdparty/macOS/Lua/lib/liblua.a submodules/SimpleRenderEngine/src/libSRE.a ../thirdparty/macOS/Box2D/lib/libBox2D.a || submodules/SimpleRenderEngine/src/libSRE.a
+  FLAGS = -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LINK_LIBRARIES = -Wl,-rpath,/Users/giorgioperri/Library/Frameworks  -framework  OpenGL  -framework  SDL2  -framework Cocoa  -framework  SDL2_image  -framework  SDL2_mixer  ../thirdparty/macOS/Lua/lib/liblua.a  submodules/SimpleRenderEngine/src/libSRE.a  ../thirdparty/macOS/Box2D/lib/libBox2D.a  -framework  OpenGL  -framework  SDL2  -framework Cocoa  -framework  SDL2_image
+  LINK_PATH = -F/Users/giorgioperri/Library/Frameworks
+  OBJECT_DIR = Exercise3/CMakeFiles/Exercise3-Snake.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Exercise3/Exercise3-Snake
+  TARGET_PDB = Exercise3-Snake.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Exercise3/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Exercise3/edit_cache: phony Exercise3/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Exercise3/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork" -B"/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Exercise3/rebuild_cache: phony Exercise3/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Exercise3/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Exercise3/CMakeFiles/install.util: CUSTOM_COMMAND Exercise3/all
+  COMMAND = cd "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Exercise3/install: phony Exercise3/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Exercise3/CMakeFiles/install/local.util: CUSTOM_COMMAND Exercise3/all
+  COMMAND = cd "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Exercise3/install/local: phony Exercise3/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Exercise3/CMakeFiles/install/strip.util: CUSTOM_COMMAND Exercise3/all
+  COMMAND = cd "/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Exercise3/install/strip: phony Exercise3/CMakeFiles/install/strip.util
+
+# =============================================================================
 # Target aliases.
 
 build Exercise2-1: phony Exercise2/Exercise2-1
@@ -2451,6 +2576,8 @@ build Exercise2-2: phony Exercise2/Exercise2-2
 build Exercise2-3: phony Exercise2/Exercise2-3
 
 build Exercise2-3-GUI: phony Exercise2/Exercise2-3-GUI
+
+build Exercise3-Snake: phony Exercise3/Exercise3-Snake
 
 build SRE: phony submodules/SimpleRenderEngine/src/libSRE.a
 
@@ -2526,7 +2653,7 @@ build libSRE.a: phony submodules/SimpleRenderEngine/src/libSRE.a
 #############################################
 # Folder: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug
 
-build all: phony submodules/SimpleRenderEngine/all project/all Exercise2/all
+build all: phony submodules/SimpleRenderEngine/all project/all Exercise2/all Exercise3/all
 
 # =============================================================================
 
@@ -2534,6 +2661,13 @@ build all: phony submodules/SimpleRenderEngine/all project/all Exercise2/all
 # Folder: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise2
 
 build Exercise2/all: phony Exercise2/Exercise2-1 Exercise2/Exercise2-2 Exercise2/Exercise2-3 Exercise2/Exercise2-3-GUI
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3
+
+build Exercise3/all: phony Exercise3/Exercise3-Snake
 
 # =============================================================================
 
@@ -2605,14 +2739,14 @@ build submodules/SimpleRenderEngine/submodules/all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../Exercise2/CMakeLists.txt ../cmake/FindSDL2.cmake ../cmake/FindSDL2_IMAGE.cmake ../cmake/FindSDL2_mixer.cmake ../project/Box2DTestbed/CMakeLists.txt ../project/CMakeLists.txt ../project/gui/CMakeLists.txt ../project/particle_system/CMakeLists.txt ../project/platformer/CMakeLists.txt ../submodules/SimpleRenderEngine/CMakeLists.txt ../submodules/SimpleRenderEngine/examples/CMakeLists.txt ../submodules/SimpleRenderEngine/src/CMakeLists.txt ../submodules/SimpleRenderEngine/submodules/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../Exercise2/CMakeLists.txt ../Exercise3/CMakeLists.txt ../cmake/FindSDL2.cmake ../cmake/FindSDL2_IMAGE.cmake ../cmake/FindSDL2_mixer.cmake ../project/Box2DTestbed/CMakeLists.txt ../project/CMakeLists.txt ../project/gui/CMakeLists.txt ../project/particle_system/CMakeLists.txt ../project/platformer/CMakeLists.txt ../submodules/SimpleRenderEngine/CMakeLists.txt ../submodules/SimpleRenderEngine/examples/CMakeLists.txt ../submodules/SimpleRenderEngine/src/CMakeLists.txt ../submodules/SimpleRenderEngine/submodules/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../Exercise2/CMakeLists.txt ../cmake/FindSDL2.cmake ../cmake/FindSDL2_IMAGE.cmake ../cmake/FindSDL2_mixer.cmake ../project/Box2DTestbed/CMakeLists.txt ../project/CMakeLists.txt ../project/gui/CMakeLists.txt ../project/particle_system/CMakeLists.txt ../project/platformer/CMakeLists.txt ../submodules/SimpleRenderEngine/CMakeLists.txt ../submodules/SimpleRenderEngine/examples/CMakeLists.txt ../submodules/SimpleRenderEngine/src/CMakeLists.txt ../submodules/SimpleRenderEngine/submodules/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../Exercise2/CMakeLists.txt ../Exercise3/CMakeLists.txt ../cmake/FindSDL2.cmake ../cmake/FindSDL2_IMAGE.cmake ../cmake/FindSDL2_mixer.cmake ../project/Box2DTestbed/CMakeLists.txt ../project/CMakeLists.txt ../project/gui/CMakeLists.txt ../project/particle_system/CMakeLists.txt ../project/platformer/CMakeLists.txt ../submodules/SimpleRenderEngine/CMakeLists.txt ../submodules/SimpleRenderEngine/examples/CMakeLists.txt ../submodules/SimpleRenderEngine/src/CMakeLists.txt ../submodules/SimpleRenderEngine/submodules/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
 
 
 #############################################
