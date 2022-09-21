@@ -1,0 +1,75 @@
+{"frames": [
+
+{
+	"filename": "bang.png",
+	"frame": {"x":0,"y":0,"w":120,"h":89},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":89},
+	"sourceSize": {"w":120,"h":89},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "enemyBlack2.png",
+	"frame": {"x":0,"y":89,"w":104,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":84},
+	"sourceSize": {"w":104,"h":84},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "laserBlue01.png",
+	"frame": {"x":104,"y":89,"w":9,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":9,"h":54},
+	"sourceSize": {"w":9,"h":54},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "meteorBrown_big4.png",
+	"frame": {"x":0,"y":173,"w":98,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":96},
+	"sourceSize": {"w":98,"h":96},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "meteorBrown_med1.png",
+	"frame": {"x":0,"y":269,"w":43,"h":43},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":43},
+	"sourceSize": {"w":43,"h":43},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "meteorBrown_small1.png",
+	"frame": {"x":43,"y":269,"w":28,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":28},
+	"sourceSize": {"w":28,"h":28},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "playerShip1_orange.png",
+	"frame": {"x":0,"y":312,"w":99,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":75},
+	"sourceSize": {"w":99,"h":75},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "test.png",
+	"format": "RGBA8888",
+	"size": {"w":120,"h":387},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e4d6ec155208b594c7f7835f0ac76521:7f490eabcc0cfbf36a01dcb77ed48c7f:02ab132358d6d8b512e80119463a8329$"
+}
+}

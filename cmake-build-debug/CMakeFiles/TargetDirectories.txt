@@ -107,3 +107,10 @@
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3/CMakeFiles/install.dir
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3/CMakeFiles/install/local.dir
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3/CMakeFiles/install/strip.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/Exercise4-Asteroids.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/edit_cache.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/rebuild_cache.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/list_install_components.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/install.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/install/local.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/install/strip.dir

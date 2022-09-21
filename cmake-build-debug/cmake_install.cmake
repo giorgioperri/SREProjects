@@ -43,6 +43,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/project/cmake_install.cmake")
   include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise2/cmake_install.cmake")
   include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise3/cmake_install.cmake")
+  include("/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/cmake_install.cmake")
 
 endif()
 
