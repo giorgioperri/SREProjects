@@ -4,7 +4,6 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/rotate_vector.hpp>
 #include "SpaceShip.hpp"
-#include "Meteor.hpp"
 #include "sre/Renderer.hpp"
 
 SpaceShip::SpaceShip(const sre::Sprite &sprite, const sre::SpriteAtlas &spriteAtlas) : GameObject(sprite) {
@@ -55,9 +54,7 @@ void SpaceShip::onCollision(std::shared_ptr<GameObject> other) {
 }
 
 void SpaceShip::fire() {
-
-    std::cout << atl->getNames()[0] << std::endl;
-
+    std::cout << "fire!" << std::endl;
     canFire = false;
 }
 
@@ -74,10 +71,6 @@ void SpaceShip::onKey(SDL_Event &keyEvent) {
     if(keyEvent.key.keysym.sym == SDLK_SPACE) {
         if(keyEvent.type == SDL_KEYUP) {
             canFire = true;
-            return;
-        }
-        if(keyEvent.type == SDL_KEYDOWN && canFire) {
-            SpaceShip::fire();
         }
     }
 }

@@ -20,6 +20,8 @@ private:
     sre::SDLRenderer r;
     bool debugCollisionCircles = false;
     int score = 0;
+
+    void fireLaser(glm::vec2 vec, float d);
 };
 
 

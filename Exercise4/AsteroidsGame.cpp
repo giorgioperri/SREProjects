@@ -8,6 +8,7 @@
 #include "GameObject.hpp"
 #include "SpaceShip.hpp"
 #include "Meteor.hpp"
+#include "Laser.hpp"
 
 using namespace sre;
 
@@ -50,6 +51,12 @@ AsteroidsGame::AsteroidsGame() {
 void AsteroidsGame::update(float deltaTime) {
     for (int i = 0; i < gameObjects.size();i++) {
         gameObjects[i]->update(deltaTime);
+
+        std::shared_ptr<SpaceShip> ship = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
+        if(ship && ship->canFire) {
+            AsteroidsGame::fireLaser(ship->position, ship->rotation);
+            ship->canFire = false;
+        }
     }
 }
 
@@ -108,6 +115,14 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
     if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_d){
         debugCollisionCircles = !debugCollisionCircles;
     }
+}
+
+void AsteroidsGame::fireLaser(glm::vec2 position, float rotation) {
+
+    auto laserSprite = atlas->get("laserBlue01.png");
+    gameObjects.push_back(std::make_shared<Laser>(laserSprite, position, rotation));
+
+    render();
 }
 
 int main(){

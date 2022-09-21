@@ -3,6 +3,7 @@
 #include "GameObject.hpp"
 #include "Collidable.hpp"
 #include "AsteroidsGame.hpp"
+#include "Meteor.hpp"
 
 class SpaceShip : public GameObject, public Collidable  {
 public:
@@ -18,8 +19,8 @@ public:
 
     glm::vec2 velocity{};
 
+    bool canFire = false;
 private:
-    bool canFire = true;
     bool rotateCW = false;
     bool rotateCCW = false;
     bool thrust = false;
