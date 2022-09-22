@@ -6,14 +6,12 @@
 #include "SpaceShip.hpp"
 #include "sre/Renderer.hpp"
 
-SpaceShip::SpaceShip(const sre::Sprite &sprite, const sre::SpriteAtlas &spriteAtlas) : GameObject(sprite) {
+SpaceShip::SpaceShip(const sre::Sprite &sprite) : GameObject(sprite) {
     scale = glm::vec2(0.5f,0.5f);
     winSize = sre::Renderer::instance->getDrawableSize();
     radius = 23;
     position = winSize * 0.5f;
     velocity = glm::vec2(0.0f,0.0f);
-
-    atl = std::make_shared<sre::SpriteAtlas>(spriteAtlas) ;
 }
 
 void SpaceShip::update(float deltaTime) {

@@ -13,11 +13,9 @@
 using namespace sre;
 
 std::shared_ptr<sre::SpriteAtlas> AsteroidsGame::atlas;
+std::vector<std::shared_ptr<GameObject>> AsteroidsGame::gameObjects;
 
-
-AsteroidsGame::~AsteroidsGame() {
-
-}
+AsteroidsGame::~AsteroidsGame() {}
 
 AsteroidsGame::AsteroidsGame() {
     r.setWindowTitle("Asteroids");
@@ -31,7 +29,7 @@ AsteroidsGame::AsteroidsGame() {
     atlas = SpriteAtlas::create("asteroids.json","asteroids.png");
 
     auto spaceshipSprite = atlas->get("playerShip1_orange.png");
-    gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipSprite, *atlas));
+    gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipSprite));
 
     auto meteorBigSprite = atlas->get("meteorBrown_big4.png");
     for (int i = 0; i < 5; ++i) {
@@ -120,7 +118,9 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
 
 void AsteroidsGame::AddGameObject() {
     std::cout << "test" << std::endl;
-    atlas = SpriteAtlas::create("asteroids.json","asteroids.png");
+
+    auto meteorBigSprite = atlas->get("meteorBrown_big4.png");
+    gameObjects.push_back(std::make_shared<Meteor>(meteorBigSprite));
 }
 
 int main(){

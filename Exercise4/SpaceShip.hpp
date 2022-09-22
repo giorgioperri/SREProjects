@@ -7,7 +7,7 @@
 
 class SpaceShip : public GameObject, public Collidable  {
 public:
-    explicit SpaceShip(const sre::Sprite &sprite, const sre::SpriteAtlas &spriteAtlas);
+    explicit SpaceShip(const sre::Sprite &sprite);
 
     void update(float deltaTime) override;
 
@@ -18,8 +18,6 @@ public:
     void onKey(SDL_Event &keyEvent) override;
 
     glm::vec2 velocity{};
-
-    bool canFire = false;
 private:
     bool rotateCW = false;
     bool rotateCCW = false;
@@ -29,8 +27,6 @@ private:
     float thrustPower = 600.0f;
     float rotationSpeed = 100.0f;
     glm::vec2 winSize{};
-
-    std::shared_ptr<sre::SpriteAtlas> atl;
 };
 
 

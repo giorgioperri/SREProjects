@@ -10,7 +10,7 @@ class AsteroidsGame {
 public:
     AsteroidsGame();
     ~AsteroidsGame();
-    std::vector<std::shared_ptr<GameObject>> gameObjects;
+    static std::vector<std::shared_ptr<GameObject>> gameObjects;
     static std::shared_ptr<sre::SpriteAtlas> atlas;
     static void AddGameObject();
 private:
