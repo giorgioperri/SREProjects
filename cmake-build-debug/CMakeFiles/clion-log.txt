@@ -9,7 +9,7 @@ CMake Warning (dev) at /Applications/CLion.app/Contents/bin/cmake/mac/share/cmak
   (e.g., `_FOUND`) to follow a certain pattern.
 Call Stack (most recent call first):
   cmake/FindSDL2_IMAGE.cmake:93 (FIND_PACKAGE_HANDLE_STANDARD_ARGS)
-  CMakeLists.txt:48 (find_package)
+  CMakeLists.txt:49 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
 </FindSDL2_image.cmake>

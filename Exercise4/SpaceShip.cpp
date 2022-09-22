@@ -54,8 +54,7 @@ void SpaceShip::onCollision(std::shared_ptr<GameObject> other) {
 }
 
 void SpaceShip::fire() {
-    std::cout << "fire!" << std::endl;
-    canFire = false;
+    AsteroidsGame::AddGameObject();
 }
 
 void SpaceShip::onKey(SDL_Event &keyEvent) {
@@ -70,7 +69,7 @@ void SpaceShip::onKey(SDL_Event &keyEvent) {
     }
     if(keyEvent.key.keysym.sym == SDLK_SPACE) {
         if(keyEvent.type == SDL_KEYUP) {
-            canFire = true;
+            fire();
         }
     }
 }

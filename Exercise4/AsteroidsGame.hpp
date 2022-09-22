@@ -9,8 +9,10 @@ class GameObject;
 class AsteroidsGame {
 public:
     AsteroidsGame();
-    std::shared_ptr<sre::SpriteAtlas> atlas;
+    ~AsteroidsGame();
     std::vector<std::shared_ptr<GameObject>> gameObjects;
+    static std::shared_ptr<sre::SpriteAtlas> atlas;
+    static void AddGameObject();
 private:
     void update(float deltaTime);
     void render();
