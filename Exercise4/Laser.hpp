@@ -21,7 +21,7 @@ private:
     glm::vec2 winSize;
     float rotationSpeed;
     float speed = 400.0f;
-    time_t spawnTime;
+    float spawnTime = 0;
 };
 
 
