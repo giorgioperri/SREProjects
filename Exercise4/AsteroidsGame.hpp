@@ -12,7 +12,7 @@ public:
     ~AsteroidsGame();
     static std::vector<std::shared_ptr<GameObject>> gameObjects;
     static std::shared_ptr<sre::SpriteAtlas> atlas;
-    static void AddGameObject();
+    static void RemoveGameObject(std::shared_ptr<GameObject> go);
 private:
     void update(float deltaTime);
     void render();

@@ -115,10 +115,10 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
     }
 }
 
-void AsteroidsGame::AddGameObject() {
-    std::cout << "test" << std::endl;
-
-    auto meteorBigSprite = atlas->get("laserBlue01.png");
+void AsteroidsGame::RemoveGameObject(std::shared_ptr<GameObject> go) {
+    auto pos = std::find(gameObjects.begin(), gameObjects.end(), go);
+    if (pos!= gameObjects.end())
+        gameObjects.erase(pos);
 }
 
 int main(){

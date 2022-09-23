@@ -17,9 +17,20 @@ Laser::Laser(const sre::Sprite &sprite, glm::vec2 pos, float rotation) : GameObj
     this->rotation = rotation;
 
     rotationSpeed = rand() % 80;
+
+    spawnTime = time(NULL);
 }
 
 void Laser::update(float deltaTime) {
+
+    if(time(NULL) - spawnTime > 1) {
+        auto iter = std::find_if(AsteroidsGame::gameObjects.begin(), AsteroidsGame::gameObjects.end(),
+                                 [&](auto &s){ return s.get() == this; }
+        );
+        if (iter != AsteroidsGame::gameObjects.end())
+            AsteroidsGame::gameObjects.erase(iter);
+    }
+
     position += velocity * deltaTime;
 
     glm::vec2 direction = glm::rotateZ(glm::vec3(0,speed,0), glm::radians(rotation));
@@ -45,3 +56,5 @@ void Laser::onCollision(std::shared_ptr<GameObject> other) {
 void Laser::onKey(SDL_Event &keyEvent) {
 
 }
+
+Laser::~Laser() {}
