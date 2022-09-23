@@ -8,7 +8,6 @@
 #include "GameObject.hpp"
 #include "SpaceShip.hpp"
 #include "Meteor.hpp"
-#include "Laser.hpp"
 
 using namespace sre;
 
@@ -119,8 +118,7 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
 void AsteroidsGame::AddGameObject() {
     std::cout << "test" << std::endl;
 
-    auto meteorBigSprite = atlas->get("meteorBrown_big4.png");
-    gameObjects.push_back(std::make_shared<Meteor>(meteorBigSprite));
+    auto meteorBigSprite = atlas->get("laserBlue01.png");
 }
 
 int main(){

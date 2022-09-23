@@ -52,7 +52,8 @@ void SpaceShip::onCollision(std::shared_ptr<GameObject> other) {
 }
 
 void SpaceShip::fire() {
-    AsteroidsGame::AddGameObject();
+    auto meteorBigSprite = AsteroidsGame::atlas->get("laserBlue01.png");
+    AsteroidsGame::gameObjects.push_back(std::make_shared<Laser>(meteorBigSprite, position, rotation));
 }
 
 void SpaceShip::onKey(SDL_Event &keyEvent) {

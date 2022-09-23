@@ -3,7 +3,7 @@
 #include "GameObject.hpp"
 #include "Collidable.hpp"
 #include "AsteroidsGame.hpp"
-#include "Meteor.hpp"
+#include "Laser.hpp"
 
 class SpaceShip : public GameObject, public Collidable  {
 public:
