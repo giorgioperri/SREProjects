@@ -15,7 +15,7 @@ SpaceShip::SpaceShip(const sre::Sprite &sprite) : GameObject(sprite) {
 }
 
 void SpaceShip::update(float deltaTime) {
-    if (thrust){
+    if (thrust && !isDead){
         float acceleration = deltaTime*thrustPower;
         glm::vec2 direction = glm::rotateZ(glm::vec3(0,acceleration,0), glm::radians(rotation));
         velocity += direction;
@@ -23,6 +23,9 @@ void SpaceShip::update(float deltaTime) {
         if (speed > maxSpeed){
             velocity = velocity * (maxSpeed / speed);
         }
+    } else if (isDead) {
+        rotation += deltaTime * rotationSpeed;
+        velocity = velocity * (1.0f - drag*deltaTime);
     } else {
         velocity = velocity * (1.0f - drag*deltaTime);
     }
@@ -48,15 +51,27 @@ void SpaceShip::update(float deltaTime) {
 }
 
 void SpaceShip::onCollision(std::shared_ptr<GameObject> other) {
-
+    if (isDead) return;
+    if(std::dynamic_pointer_cast<Laser>(other) != nullptr) return;
+    destroySelf();
 }
 
 void SpaceShip::fire() {
+    if (isDead) return;
     auto meteorBigSprite = AsteroidsGame::atlas->get("laserBlue01.png");
     AsteroidsGame::gameObjects.push_back(std::make_shared<Laser>(meteorBigSprite, position, rotation));
 }
 
 void SpaceShip::onKey(SDL_Event &keyEvent) {
+    if (isDead) {
+        if(keyEvent.key.keysym.sym == SDLK_SPACE) {
+            if(keyEvent.type == SDL_KEYUP) {
+                restart();
+            }
+        }
+        return;
+    }
+
     if (keyEvent.key.keysym.sym == SDLK_UP){
         thrust = keyEvent.type == SDL_KEYDOWN;
     }
@@ -71,4 +86,17 @@ void SpaceShip::onKey(SDL_Event &keyEvent) {
             fire();
         }
     }
+}
+
+void SpaceShip::destroySelf() {
+    isDead = true;
+    sprite = AsteroidsGame::atlas->get("bang.png");
+}
+
+void SpaceShip::restart() {
+    isDead = false;
+    sprite = AsteroidsGame::atlas->get("playerShip1_orange.png");
+    AsteroidsGame::score = 0;
+    position = winSize * 0.5f;
+    AsteroidsGame::initObjects();
 }

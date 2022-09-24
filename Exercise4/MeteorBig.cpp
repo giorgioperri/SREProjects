@@ -3,10 +3,14 @@
 //
 #define GLM_ENABLE_EXPERIMENTAL
 #include "glm/gtx/rotate_vector.hpp"
-#include "Meteor.hpp"
+#include "MeteorBig.hpp"
+#include "MeteorMedium.hpp"
+#include "MeteorSmall.hpp"
 #include "sre/Renderer.hpp"
+#include "Laser.hpp"
+#include "SpaceShip.hpp"
 
-Meteor::Meteor(const sre::Sprite &sprite) : GameObject(sprite) {
+MeteorBig::MeteorBig(const sre::Sprite &sprite) : GameObject(sprite) {
     scale = glm::vec2(0.5f,0.5f);
     winSize = sre::Renderer::instance->getDrawableSize();
     radius = 28;
@@ -23,7 +27,7 @@ Meteor::Meteor(const sre::Sprite &sprite) : GameObject(sprite) {
     rotationSpeed = rand() % 80;
 }
 
-void Meteor::update(float deltaTime) {
+void MeteorBig::update(float deltaTime) {
     position += velocity * deltaTime;
     rotation += deltaTime * rotationSpeed;
 
@@ -40,10 +44,21 @@ void Meteor::update(float deltaTime) {
     }
 }
 
-void Meteor::onCollision(std::shared_ptr<GameObject> other) {
+void MeteorBig::onCollision(std::shared_ptr<GameObject> other) {
+}
+
+void MeteorBig::onKey(SDL_Event &keyEvent) {
 
 }
 
-void Meteor::onKey(SDL_Event &keyEvent) {
+void MeteorBig::destroyAndSpawn() {
+    auto meteorIter = std::find_if(AsteroidsGame::gameObjects.begin(), AsteroidsGame::gameObjects.end(),
+                                   [&](auto &s){ return s.get() == this; }
+    );
+    if (meteorIter != AsteroidsGame::gameObjects.end())
+        AsteroidsGame::gameObjects.erase(meteorIter);
 
+        auto meteorMedSprite = AsteroidsGame::atlas->get("meteorBrown_med1.png");
+        AsteroidsGame::gameObjects.push_back(std::make_shared<MeteorMedium>(meteorMedSprite, position));
+        AsteroidsGame::gameObjects.push_back(std::make_shared<MeteorMedium>(meteorMedSprite, position));
 }

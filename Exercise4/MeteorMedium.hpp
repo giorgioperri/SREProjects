@@ -2,16 +2,17 @@
 
 #include "GameObject.hpp"
 #include "Collidable.hpp"
+#include "AsteroidsGame.hpp"
 
-class Meteor : public GameObject, public Collidable  {
+class MeteorMedium : public GameObject, public Collidable  {
 public:
-    Meteor(const sre::Sprite &sprite);
+    MeteorMedium(const sre::Sprite &sprite, glm::vec2 pos);
 
     void update(float deltaTime) override;
 
     void onCollision(std::shared_ptr<GameObject> other) override;
 
-    void onKey(SDL_Event &keyEvent) override;
+    void destroyAndSpawn();
 
     glm::vec2 velocity;
 private:

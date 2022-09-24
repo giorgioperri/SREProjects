@@ -13,6 +13,8 @@ public:
     static std::vector<std::shared_ptr<GameObject>> gameObjects;
     static std::shared_ptr<sre::SpriteAtlas> atlas;
     static void RemoveGameObject(std::shared_ptr<GameObject> go);
+    static int score;
+    static void initObjects();
 private:
     void update(float deltaTime);
     void render();
@@ -21,7 +23,6 @@ private:
     sre::Camera camera;
     sre::SDLRenderer r;
     bool debugCollisionCircles = false;
-    int score = 0;
 
     void fireLaser(glm::vec2 vec, float d);
 };
