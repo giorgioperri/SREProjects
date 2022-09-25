@@ -72,3 +72,5 @@ void Meteor::onCollision(std::shared_ptr<GameObject> other) {
         AsteroidsGame::gameObjects.push_back(std::make_shared<Meteor>(spriteToIssue, Small, position));
     }
 }
+
+Meteor::~Meteor() = default;

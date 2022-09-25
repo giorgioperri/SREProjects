@@ -51,4 +51,4 @@ void Laser::onCollision(std::shared_ptr<GameObject> other) {
 
 }
 
-Laser::~Laser() {}
+Laser::~Laser() = default;

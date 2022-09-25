@@ -62,12 +62,7 @@ void SpaceShip::fire() {
 }
 
 void SpaceShip::onKey(SDL_Event &keyEvent) {
-    if (isDead) {
-        if(keyEvent.key.keysym.sym == SDLK_SPACE && keyEvent.type == SDL_KEYUP) {
-            restart();
-        }
-        return;
-    }
+    if (isDead) return;
 
     if (keyEvent.key.keysym.sym == SDLK_UP){
         thrust = keyEvent.type == SDL_KEYDOWN;
@@ -94,5 +89,6 @@ void SpaceShip::restart() {
     isDead = false;
     sprite = AsteroidsGame::atlas->get("playerShip1_orange.png");
     position = winSize * 0.5f;
-    AsteroidsGame::initObjects();
 }
+
+SpaceShip::~SpaceShip() = default;

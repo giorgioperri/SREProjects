@@ -13,7 +13,6 @@ using namespace sre;
 
 std::shared_ptr<sre::SpriteAtlas> AsteroidsGame::atlas;
 std::vector<std::shared_ptr<GameObject>> AsteroidsGame::gameObjects;
-int AsteroidsGame::score = 0;
 
 AsteroidsGame::~AsteroidsGame() {}
 
@@ -133,6 +132,14 @@ void AsteroidsGame::render() {
 void AsteroidsGame::keyEvent(SDL_Event &event) {
     for (int i = 0; i < gameObjects.size();i++) {
         gameObjects[i]->onKey(event);
+
+        if(std::dynamic_pointer_cast<SpaceShip>(gameObjects[i])) {
+            auto ship = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
+            if(ship->isDead && event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_SPACE) {
+                ship->restart();
+                initObjects();
+            }
+        }
     }
     if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_d){
         debugCollisionCircles = !debugCollisionCircles;
@@ -142,7 +149,6 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
 void AsteroidsGame::initObjects() {
     score = 0;
     gameObjects.clear();
-
     auto spaceshipSprite = atlas->get("playerShip1_orange.png");
     gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipSprite));
 
