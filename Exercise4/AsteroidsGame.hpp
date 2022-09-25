@@ -21,6 +21,7 @@ private:
     bool debugCollisionCircles = false;
     int score;
     void initObjects();
+    std::vector<sre::Sprite> backgroundStars;
 };
 
 

@@ -17,6 +17,7 @@ std::vector<std::shared_ptr<GameObject>> AsteroidsGame::gameObjects;
 AsteroidsGame::~AsteroidsGame() {}
 
 AsteroidsGame::AsteroidsGame() {
+
     r.setWindowTitle("Asteroids");
 
     r.init().withSdlInitFlags(SDL_INIT_EVERYTHING)
@@ -104,6 +105,15 @@ void AsteroidsGame::render() {
             .build();
     auto spriteBatchBuilder = SpriteBatch::create();
 
+//    --Render function
+//    sprite.setPosition(position);
+//    sprite.setRotation(rotation);
+//    sprite.setScale(scale);
+
+    for (int i = 0; i < backgroundStars.size();i++) {
+        spriteBatchBuilder.addSprite(backgroundStars[i]);
+    }
+
     for (int i = 0; i < gameObjects.size();i++) {
         gameObjects[i]->render(spriteBatchBuilder);
     }
@@ -147,6 +157,31 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
 }
 
 void AsteroidsGame::initObjects() {
+    backgroundStars.clear();
+    auto winSize = sre::Renderer::instance->getDrawableSize();
+
+    for (int i = 50; i < winSize.x; i += winSize.x/6) {
+        for (int j = 50; j < winSize.y; j += winSize.y/6) {
+            sre::Sprite starSprite;
+            const int randNum = rand() % 999;
+            if (randNum <= 333) {
+                starSprite = atlas->get("star1.png");
+            } else if (randNum <= 666) {
+                starSprite = atlas->get("star2.png");
+            } else {
+                starSprite = atlas->get("star3.png");
+            }
+            glm::vec2 position = glm::vec2(i + rand() % 81 + (-40), j + rand() % 81 + (-40));
+            double scaleParam = (((float) rand() / RAND_MAX) * 0.5) + 0.1;
+            glm::vec2 scale = glm::vec2(scaleParam, scaleParam);
+            float rotation = 30;
+            starSprite.setPosition(position);
+            starSprite.setRotation(rotation);
+            starSprite.setScale(scale);
+            backgroundStars.push_back(starSprite);
+        }
+    }
+
     score = 0;
     gameObjects.clear();
     auto spaceshipSprite = atlas->get("playerShip1_orange.png");
