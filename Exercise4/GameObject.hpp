@@ -12,8 +12,7 @@ public:
     virtual void render(sre::SpriteBatch::SpriteBatchBuilder& spriteBatchBuilder);
     virtual void update(float deltaTime);
     virtual void onKey(SDL_Event& keyEvent);
-
-
+    bool queueForRemoval;
 protected:
     glm::vec2 position;
     glm::vec2 scale;

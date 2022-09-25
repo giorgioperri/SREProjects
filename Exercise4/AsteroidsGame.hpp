@@ -12,7 +12,6 @@ public:
     ~AsteroidsGame();
     static std::vector<std::shared_ptr<GameObject>> gameObjects;
     static std::shared_ptr<sre::SpriteAtlas> atlas;
-    static void RemoveGameObject(std::shared_ptr<GameObject> go);
     static int score;
     static void initObjects();
 private:
@@ -23,8 +22,6 @@ private:
     sre::Camera camera;
     sre::SDLRenderer r;
     bool debugCollisionCircles = false;
-
-    void fireLaser(glm::vec2 vec, float d);
 };
 
 

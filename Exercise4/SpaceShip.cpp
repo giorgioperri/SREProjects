@@ -52,22 +52,19 @@ void SpaceShip::update(float deltaTime) {
 
 void SpaceShip::onCollision(std::shared_ptr<GameObject> other) {
     if (isDead) return;
-    if(std::dynamic_pointer_cast<Laser>(other) != nullptr) return;
+    if(std::dynamic_pointer_cast<Laser>(other)) return;
     destroySelf();
 }
 
 void SpaceShip::fire() {
-    if (isDead) return;
     auto meteorBigSprite = AsteroidsGame::atlas->get("laserBlue01.png");
     AsteroidsGame::gameObjects.push_back(std::make_shared<Laser>(meteorBigSprite, position, rotation));
 }
 
 void SpaceShip::onKey(SDL_Event &keyEvent) {
     if (isDead) {
-        if(keyEvent.key.keysym.sym == SDLK_SPACE) {
-            if(keyEvent.type == SDL_KEYUP) {
-                restart();
-            }
+        if(keyEvent.key.keysym.sym == SDLK_SPACE && keyEvent.type == SDL_KEYUP) {
+            restart();
         }
         return;
     }
@@ -96,7 +93,6 @@ void SpaceShip::destroySelf() {
 void SpaceShip::restart() {
     isDead = false;
     sprite = AsteroidsGame::atlas->get("playerShip1_orange.png");
-    AsteroidsGame::score = 0;
     position = winSize * 0.5f;
     AsteroidsGame::initObjects();
 }

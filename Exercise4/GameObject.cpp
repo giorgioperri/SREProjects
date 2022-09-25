@@ -8,7 +8,8 @@ GameObject::GameObject(sre::Sprite sprite)
 :position(0,0),
  rotation(0),
  scale(1,1),
- sprite(sprite)
+ sprite(sprite),
+ queueForRemoval(false)
 {
 }
 

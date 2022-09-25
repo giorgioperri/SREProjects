@@ -7,7 +7,7 @@
 #include "AsteroidsGame.hpp"
 #include "GameObject.hpp"
 #include "SpaceShip.hpp"
-#include "MeteorBig.hpp"
+#include "Meteor.hpp"
 
 using namespace sre;
 
@@ -49,6 +49,7 @@ AsteroidsGame::AsteroidsGame() {
 
 void AsteroidsGame::update(float deltaTime) {
     for (int i = 0; i < gameObjects.size();i++) {
+        if (gameObjects[i]->queueForRemoval) continue;
         gameObjects[i]->update(deltaTime);
 
         for (int j = 0; j < gameObjects.size();j++) {
@@ -66,9 +67,18 @@ void AsteroidsGame::update(float deltaTime) {
 
             if ((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) < rSum*rSum) {
                 coll1->onCollision(gameObjects[j]);
+                coll2->onCollision(gameObjects[i]);
             }
         }
+    }
 
+    for (int i = 0; i < gameObjects.size();i++) {
+        if (gameObjects[i]->queueForRemoval) {
+            if(!std::dynamic_pointer_cast<Laser>(gameObjects[i])) {
+            score++;
+            }
+            gameObjects.erase(std::remove(gameObjects.begin(), gameObjects.end(), gameObjects[i]), gameObjects.end());
+        }
     }
 }
 
@@ -129,23 +139,16 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
     }
 }
 
-void AsteroidsGame::RemoveGameObject(std::shared_ptr<GameObject> go) {
-    auto iter = std::find_if(AsteroidsGame::gameObjects.begin(), AsteroidsGame::gameObjects.end(),
-                             [&](auto &s){ return s.get() == go.get(); }
-    );
-    if (iter != AsteroidsGame::gameObjects.end())
-        AsteroidsGame::gameObjects.erase(iter);
-}
-
 void AsteroidsGame::initObjects() {
+    score = 0;
     gameObjects.clear();
 
     auto spaceshipSprite = atlas->get("playerShip1_orange.png");
     gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipSprite));
-    
+
     auto meteorBigSprite = atlas->get("meteorBrown_big4.png");
     for (int i = 0; i < 5; ++i) {
-        gameObjects.push_back(std::make_shared<MeteorBig>(meteorBigSprite));
+        gameObjects.push_back(std::make_shared<Meteor>(meteorBigSprite, Big));
     }
 }
 
