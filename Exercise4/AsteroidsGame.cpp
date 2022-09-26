@@ -7,6 +7,7 @@
 #include "AsteroidsGame.hpp"
 #include "GameObject.hpp"
 #include "SpaceShip.hpp"
+#include "Enemy.hpp"
 #include "Meteor.hpp"
 
 using namespace sre;
@@ -57,11 +58,20 @@ void AsteroidsGame::update(float deltaTime) {
         gameObjects[i]->update(deltaTime);
 
         if(std::dynamic_pointer_cast<SpaceShip>(gameObjects[i])) {
-            auto ship = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
-            if(ship->isDead) {
+            auto playerShip = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
+            if(playerShip->isDead) {
                 isRunning = false;
             }
         }
+
+        for (int k = 0; k < players; ++k) {
+            if(allyShips.size() > 0 && enemyShips.size() > 0){
+                float angle = atan2(enemyShips[k]->position.y - allyShips[k]->position.y,  enemyShips[k]->position.x - allyShips[k]->position.x);
+                enemyShips[k]->rotation = (angle * 180 / 3.14f) + 90;
+            }
+        }
+
+
 
         for (int j = 0; j < gameObjects.size();j++) {
             if(gameObjects[i] == gameObjects[j]) continue;
@@ -216,20 +226,34 @@ void AsteroidsGame::initObjects() {
 
     score = 0;
     gameObjects.clear();
+    allyShips.clear();
+    enemyShips.clear();
     auto spaceshipOneSprite = atlas->get("playerShip1_orange.png");
-    gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipOneSprite, PlayerOne,
-                                                      glm::vec2(sre::Renderer::instance->getDrawableSize().x / 2,
-                                                                sre::Renderer::instance->getDrawableSize().y / 2 - 30)));
+
+    auto playerShip = std::make_shared<SpaceShip>(spaceshipOneSprite, PlayerOne,
+                                                  glm::vec2(sre::Renderer::instance->getDrawableSize().x / 2,
+                                                            sre::Renderer::instance->getDrawableSize().y / 2 - 30));
+    gameObjects.push_back(playerShip);
+    allyShips.push_back(playerShip);
 
     if(players > 1) {
         auto spaceshipTwoSprite = atlas->get("playerShip1_green.png");
-        gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipTwoSprite, PlayerTwo,
-                                                          glm::vec2(sre::Renderer::instance->getDrawableSize().x / 2,
-                                                                    sre::Renderer::instance->getDrawableSize().y / 2 + 30)));
+        auto playerShip2 = std::make_shared<SpaceShip>(spaceshipTwoSprite, PlayerTwo,
+                                                       glm::vec2(sre::Renderer::instance->getDrawableSize().x / 2,
+                                                                 sre::Renderer::instance->getDrawableSize().y / 2 + 30));
+        gameObjects.push_back(playerShip2);
+        allyShips.push_back(playerShip2);
+    }
+
+    auto enemySprite = atlas->get("enemyBlack2.png");
+    for (int i = 0; i < players; ++i) {
+        auto enemyShip = std::make_shared<EnemyShip>(enemySprite);
+        gameObjects.push_back(enemyShip);
+        enemyShips.push_back(enemyShip);
     }
 
     auto meteorBigSprite = atlas->get("meteorBrown_big4.png");
-    for (int i = 0; i < 1; ++i) {
+    for (int i = 0; i < 2; ++i) {
         gameObjects.push_back(std::make_shared<Meteor>(meteorBigSprite, Big));
     }
 }

@@ -5,6 +5,8 @@
 #include "sre/SpriteAtlas.hpp"
 
 class GameObject;
+class EnemyShip;
+class SpaceShip;
 
 class AsteroidsGame {
 public:
@@ -25,6 +27,8 @@ private:
     void endGame();
     std::vector<sre::Sprite> backgroundStars;
     int players = 1;
+    std::vector<std::shared_ptr<SpaceShip>> allyShips;
+    std::vector<std::shared_ptr<EnemyShip>> enemyShips;
 };
 
 

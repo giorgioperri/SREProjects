@@ -5,9 +5,10 @@
 #include "glm/gtx/rotate_vector.hpp"
 #include "Laser.hpp"
 #include "SpaceShip.hpp"
+#include "Enemy.hpp"
 #include "sre/Renderer.hpp"
 
-Laser::Laser(const sre::Sprite &sprite, glm::vec2 pos, float rotation) : GameObject(sprite) {
+Laser::Laser(const sre::Sprite &sprite, glm::vec2 pos, float rotation, LaserType laserType) : GameObject(sprite) {
     scale = glm::vec2(0.5f,0.5f);
     winSize = sre::Renderer::instance->getDrawableSize();
     radius = 5;
@@ -18,6 +19,8 @@ Laser::Laser(const sre::Sprite &sprite, glm::vec2 pos, float rotation) : GameObj
 
     glm::vec2 direction = glm::rotateZ(glm::vec3(0,speed,0), glm::radians(rotation));
     velocity = direction;
+
+    currentLaserType = laserType;
 }
 
 void Laser::update(float deltaTime) {
@@ -45,7 +48,8 @@ void Laser::update(float deltaTime) {
 
 void Laser::onCollision(std::shared_ptr<GameObject> other) {
 
-    if(std::dynamic_pointer_cast<SpaceShip>(other)) return;
+    if(currentLaserType == Ally && std::dynamic_pointer_cast<SpaceShip>(other) ||
+            currentLaserType == Enemy && std::dynamic_pointer_cast<EnemyShip>(other)) return;
 
     queueForRemoval = true;
 

@@ -13,8 +13,8 @@ public:
     virtual void update(float deltaTime);
     virtual void onKey(SDL_Event& keyEvent);
     bool queueForRemoval;
-protected:
     glm::vec2 position;
+protected:
     glm::vec2 scale;
     sre::Sprite sprite;
     float rotation;
