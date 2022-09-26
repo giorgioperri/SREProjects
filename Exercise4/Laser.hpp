@@ -17,12 +17,12 @@ public:
     void update(float deltaTime) override;
     void onCollision(std::shared_ptr<GameObject> other) override;
     glm::vec2 velocity;
+    LaserType currentLaserType;
 private:
     glm::vec2 winSize;
     float rotationSpeed;
     float speed = 400.0f;
     float spawnTime = 0;
-    LaserType currentLaserType;
 };
 
 

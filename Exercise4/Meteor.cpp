@@ -4,6 +4,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include "glm/gtx/rotate_vector.hpp"
 #include "Meteor.hpp"
+#include "Enemy.hpp"
 #include "SpaceShip.hpp"
 #include "sre/Renderer.hpp"
 
@@ -57,7 +58,10 @@ void Meteor::update(float deltaTime) {
 }
 
 void Meteor::onCollision(std::shared_ptr<GameObject> other) {
-    if(std::dynamic_pointer_cast<Meteor>(other) || std::dynamic_pointer_cast<SpaceShip>(other)) return;
+    if(std::dynamic_pointer_cast<Meteor>(other) || std::dynamic_pointer_cast<SpaceShip>(other) || std::dynamic_pointer_cast<EnemyShip>(other)) return;
+
+    if(std::dynamic_pointer_cast<Laser>(other) && std::dynamic_pointer_cast<Laser>(other)->currentLaserType == Enemy) return;
+
     queueForRemoval = true;
 
     sre::Sprite spriteToIssue;

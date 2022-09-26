@@ -51,6 +51,14 @@ void Laser::onCollision(std::shared_ptr<GameObject> other) {
     if(currentLaserType == Ally && std::dynamic_pointer_cast<SpaceShip>(other) ||
             currentLaserType == Enemy && std::dynamic_pointer_cast<EnemyShip>(other)) return;
 
+    if(currentLaserType == Enemy && std::dynamic_pointer_cast<SpaceShip>(other)) {
+        std::dynamic_pointer_cast<SpaceShip>(other)->destroySelf();
+    }
+
+    if(currentLaserType == Ally && std::dynamic_pointer_cast<EnemyShip>(other)) {
+        std::dynamic_pointer_cast<EnemyShip>(other)->queueForRemoval = true;
+    }
+
     queueForRemoval = true;
 
 }
