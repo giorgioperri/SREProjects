@@ -6,12 +6,13 @@
 #include "SpaceShip.hpp"
 #include "sre/Renderer.hpp"
 
-SpaceShip::SpaceShip(const sre::Sprite &sprite) : GameObject(sprite) {
+SpaceShip::SpaceShip(const sre::Sprite &sprite, PlayerNumber pNum, glm::vec2 pos) : GameObject(sprite) {
     scale = glm::vec2(0.5f,0.5f);
     winSize = sre::Renderer::instance->getDrawableSize();
     radius = 23;
-    position = winSize * 0.5f;
+    position = pos;
     velocity = glm::vec2(0.0f,0.0f);
+    playerNumber = pNum;
 }
 
 void SpaceShip::update(float deltaTime) {
@@ -51,8 +52,7 @@ void SpaceShip::update(float deltaTime) {
 }
 
 void SpaceShip::onCollision(std::shared_ptr<GameObject> other) {
-    if (isDead) return;
-    if(std::dynamic_pointer_cast<Laser>(other)) return;
+    if (isDead || std::dynamic_pointer_cast<SpaceShip>(other) || std::dynamic_pointer_cast<Laser>(other)) return;
     destroySelf();
 }
 
@@ -64,16 +64,17 @@ void SpaceShip::fire() {
 void SpaceShip::onKey(SDL_Event &keyEvent) {
     if (isDead) return;
 
-    if (keyEvent.key.keysym.sym == SDLK_UP){
+    if ((playerNumber == PlayerOne && keyEvent.key.keysym.sym == SDLK_UP) || (playerNumber == PlayerTwo && keyEvent.key.keysym.sym == SDLK_w)){
         thrust = keyEvent.type == SDL_KEYDOWN;
     }
-    if (keyEvent.key.keysym.sym == SDLK_LEFT){
+    if ((playerNumber == PlayerOne && keyEvent.key.keysym.sym == SDLK_LEFT) || (playerNumber == PlayerTwo && keyEvent.key.keysym.sym == SDLK_a)){
         rotateCCW = keyEvent.type == SDL_KEYDOWN;
     }
-    if (keyEvent.key.keysym.sym == SDLK_RIGHT){
+    if ((playerNumber == PlayerOne && keyEvent.key.keysym.sym == SDLK_RIGHT) || (playerNumber == PlayerTwo && keyEvent.key.keysym.sym == SDLK_d)){
         rotateCW = keyEvent.type == SDL_KEYDOWN;
     }
-    if(keyEvent.key.keysym.sym == SDLK_SPACE) {
+
+    if((playerNumber == PlayerOne && keyEvent.key.keysym.sym == SDLK_SPACE) || (playerNumber == PlayerTwo && keyEvent.key.keysym.sym == SDLK_e)) {
         if(keyEvent.type == SDL_KEYUP) {
             fire();
         }

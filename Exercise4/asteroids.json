@@ -2,7 +2,7 @@
 
 {
 	"filename": "bang.png",
-	"frame": {"x":0,"y":0,"w":120,"h":89},
+	"frame": {"x":0,"y":159,"w":120,"h":89},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":89},
@@ -11,7 +11,7 @@
 },
 {
 	"filename": "enemyBlack2.png",
-	"frame": {"x":120,"y":0,"w":104,"h":84},
+	"frame": {"x":99,"y":75,"w":104,"h":84},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":84},
@@ -20,7 +20,7 @@
 },
 {
 	"filename": "laserBlue01.png",
-	"frame": {"x":224,"y":0,"w":9,"h":54},
+	"frame": {"x":145,"y":0,"w":9,"h":54},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":9,"h":54},
@@ -29,7 +29,7 @@
 },
 {
 	"filename": "meteorBrown_big4.png",
-	"frame": {"x":233,"y":0,"w":98,"h":96},
+	"frame": {"x":120,"y":159,"w":98,"h":96},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":96},
@@ -38,7 +38,7 @@
 },
 {
 	"filename": "meteorBrown_med1.png",
-	"frame": {"x":331,"y":0,"w":43,"h":43},
+	"frame": {"x":102,"y":0,"w":43,"h":43},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":43},
@@ -47,7 +47,7 @@
 },
 {
 	"filename": "meteorBrown_small1.png",
-	"frame": {"x":374,"y":0,"w":28,"h":28},
+	"frame": {"x":74,"y":0,"w":28,"h":28},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":28},
@@ -55,8 +55,17 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
+	"filename": "playerShip1_green.png",
+	"frame": {"x":154,"y":0,"w":99,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":75},
+	"sourceSize": {"w":99,"h":75},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
 	"filename": "playerShip1_orange.png",
-	"frame": {"x":402,"y":0,"w":99,"h":75},
+	"frame": {"x":0,"y":75,"w":99,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":75},
@@ -65,7 +74,7 @@
 },
 {
 	"filename": "star1.png",
-	"frame": {"x":0,"y":96,"w":25,"h":24},
+	"frame": {"x":0,"y":0,"w":25,"h":24},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":24},
@@ -74,7 +83,7 @@
 },
 {
 	"filename": "star2.png",
-	"frame": {"x":25,"y":96,"w":25,"h":24},
+	"frame": {"x":25,"y":0,"w":25,"h":24},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":24},
@@ -83,7 +92,7 @@
 },
 {
 	"filename": "star3.png",
-	"frame": {"x":50,"y":96,"w":24,"h":24},
+	"frame": {"x":50,"y":0,"w":24,"h":24},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":24,"h":24},
@@ -95,8 +104,8 @@
 	"version": "1.0",
 	"image": "test.png",
 	"format": "RGBA8888",
-	"size": {"w":512,"h":512},
+	"size": {"w":256,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:84f685ea12bda5187996da240aca9cf5:b0250fb9502ca278f766c3ccad6301b2:02ab132358d6d8b512e80119463a8329$"
+	"smartupdate": "$TexturePacker:SmartUpdate:5762beb1277b74bf4a64fa22144aba5c:04f2d7365289a5c54740995d721ad902:02ab132358d6d8b512e80119463a8329$"
 }
 }

@@ -8,7 +8,7 @@ class GameObject;
 
 class AsteroidsGame {
 public:
-    AsteroidsGame();
+    explicit AsteroidsGame(int playerAmount = 1);
     ~AsteroidsGame();
     static std::vector<std::shared_ptr<GameObject>> gameObjects;
     static std::shared_ptr<sre::SpriteAtlas> atlas;
@@ -19,9 +19,12 @@ private:
     sre::Camera camera;
     sre::SDLRenderer r;
     bool debugCollisionCircles = false;
+    bool isRunning = true;
     int score;
     void initObjects();
+    void endGame();
     std::vector<sre::Sprite> backgroundStars;
+    int players = 1;
 };
 
 

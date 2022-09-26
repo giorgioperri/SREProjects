@@ -16,7 +16,11 @@ std::vector<std::shared_ptr<GameObject>> AsteroidsGame::gameObjects;
 
 AsteroidsGame::~AsteroidsGame() {}
 
-AsteroidsGame::AsteroidsGame() {
+AsteroidsGame::AsteroidsGame(int playerAmount) {
+
+    players = playerAmount;
+
+    if (players > 2) players = 2;
 
     r.setWindowTitle("Asteroids");
 
@@ -52,6 +56,13 @@ void AsteroidsGame::update(float deltaTime) {
         if (gameObjects[i]->queueForRemoval) continue;
         gameObjects[i]->update(deltaTime);
 
+        if(std::dynamic_pointer_cast<SpaceShip>(gameObjects[i])) {
+            auto ship = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
+            if(ship->isDead) {
+                isRunning = false;
+            }
+        }
+
         for (int j = 0; j < gameObjects.size();j++) {
             if(gameObjects[i] == gameObjects[j]) continue;
 
@@ -80,6 +91,10 @@ void AsteroidsGame::update(float deltaTime) {
             gameObjects.erase(std::remove(gameObjects.begin(), gameObjects.end(), gameObjects[i]), gameObjects.end());
         }
     }
+
+    if(gameObjects.size() <= players) {
+        endGame();
+    }
 }
 
 void drawCircle(std::vector<glm::vec3>& lines, glm::vec2 position, float radius){
@@ -105,11 +120,6 @@ void AsteroidsGame::render() {
             .build();
     auto spriteBatchBuilder = SpriteBatch::create();
 
-//    --Render function
-//    sprite.setPosition(position);
-//    sprite.setRotation(rotation);
-//    sprite.setScale(scale);
-
     for (int i = 0; i < backgroundStars.size();i++) {
         spriteBatchBuilder.addSprite(backgroundStars[i]);
     }
@@ -132,26 +142,48 @@ void AsteroidsGame::render() {
     }
 
     ImGui::SetNextWindowPos(ImVec2(Renderer::instance->getWindowSize().x/2-100, .0f), ImGuiSetCond_Always);
-    ImGui::SetNextWindowSize(ImVec2(200, 70), ImGuiSetCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(200, 60), ImGuiSetCond_Always);
     ImGui::Begin("", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
     ImGui::LabelText("GOs", "%i", (int)gameObjects.size());
     ImGui::LabelText("Score", "%i",score);
+    ImGui::End();
+
+    bool hasLost = false;
+
+    for (int i = 0; i < gameObjects.size();i++) {
+        if(std::dynamic_pointer_cast<SpaceShip>(gameObjects[i])) {
+            auto ship = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
+            if(ship->isDead) {
+                hasLost = true;
+                endGame();
+            }
+        }
+    }
+
+    if (isRunning) return;
+
+    ImGui::SetNextWindowPos(ImVec2(Renderer::instance->getWindowSize().x/2-90, Renderer::instance->getWindowSize().y/2-25), ImGuiSetCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(180, 50), ImGuiSetCond_Always);
+    ImGui::Begin(" ", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+    ImGui::Text(hasLost ? "You Lose!" : "You Win!");
+    ImGui::Text("Press SPACE to restart!");
     ImGui::End();
 }
 
 void AsteroidsGame::keyEvent(SDL_Event &event) {
     for (int i = 0; i < gameObjects.size();i++) {
-        gameObjects[i]->onKey(event);
+        if(isRunning) gameObjects[i]->onKey(event);
 
         if(std::dynamic_pointer_cast<SpaceShip>(gameObjects[i])) {
             auto ship = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
-            if(ship->isDead && event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_SPACE) {
+            if((ship->isDead || !isRunning) && event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_SPACE) {
                 ship->restart();
                 initObjects();
+                isRunning = true;
             }
         }
     }
-    if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_d){
+    if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_r){
         debugCollisionCircles = !debugCollisionCircles;
     }
 }
@@ -184,16 +216,32 @@ void AsteroidsGame::initObjects() {
 
     score = 0;
     gameObjects.clear();
-    auto spaceshipSprite = atlas->get("playerShip1_orange.png");
-    gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipSprite));
+    auto spaceshipOneSprite = atlas->get("playerShip1_orange.png");
+    gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipOneSprite, PlayerOne,
+                                                      glm::vec2(sre::Renderer::instance->getDrawableSize().x / 2,
+                                                                sre::Renderer::instance->getDrawableSize().y / 2 - 30)));
+
+    if(players > 1) {
+        auto spaceshipTwoSprite = atlas->get("playerShip1_green.png");
+        gameObjects.push_back(std::make_shared<SpaceShip>(spaceshipTwoSprite, PlayerTwo,
+                                                          glm::vec2(sre::Renderer::instance->getDrawableSize().x / 2,
+                                                                    sre::Renderer::instance->getDrawableSize().y / 2 + 30)));
+    }
 
     auto meteorBigSprite = atlas->get("meteorBrown_big4.png");
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 1; ++i) {
         gameObjects.push_back(std::make_shared<Meteor>(meteorBigSprite, Big));
     }
 }
 
+void AsteroidsGame::endGame() {
+    isRunning = false;
+}
+
 int main(){
-    new AsteroidsGame();
+    int players;
+    std::cout << "How many people are going to play? (Type 1 or 2)\n";
+    std::cin >> players;
+    new AsteroidsGame(players);
     return 0;
 }
