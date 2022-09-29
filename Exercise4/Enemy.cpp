@@ -3,24 +3,24 @@
 //
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/rotate_vector.hpp>
-#include "Enemy.hpp"
 #include "sre/Renderer.hpp"
+#include "Enemy.hpp"
 #include <math.h>
 
 EnemyShip::EnemyShip(const sre::Sprite &sprite, glm::vec2 pos) : GameObject(sprite) {
-    scale = glm::vec2(0.5f,0.5f);
-    winSize = sre::Renderer::instance->getDrawableSize();
     radius = 23;
-    position = pos;
-    velocity = glm::vec2(0.0f,0.0f);
     spawnTime = 0;
+    position = pos;
     lastFireTime = 0;
+    scale = glm::vec2(0.5f,0.5f);
+    velocity = glm::vec2(0.0f,0.0f);
+    winSize = sre::Renderer::instance->getDrawableSize();
 }
 
 void EnemyShip::update(float deltaTime) {
 
+    //fires at random intervals
     spawnTime += deltaTime;
-
     if(spawnTime - lastFireTime > rand() % 200) {
         fire();
         lastFireTime = spawnTime;
@@ -51,9 +51,7 @@ void EnemyShip::update(float deltaTime) {
     }
 }
 
-void EnemyShip::onCollision(std::shared_ptr<GameObject> other) {
-    if (std::dynamic_pointer_cast<EnemyShip>(other) || std::dynamic_pointer_cast<Laser>(other)) return;
-}
+void EnemyShip::onCollision(std::shared_ptr<GameObject> other) {}
 
 void EnemyShip::fire() {
     auto laserSprite = AsteroidsGame::atlas->get("laserRed01.png");

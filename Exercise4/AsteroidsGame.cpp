@@ -1,26 +1,26 @@
-﻿//
-// Created by Morten Nobel-Jørgensen on 12/09/2017.
-//
-
-#include <ctime>
+﻿#include <ctime>
 #include <glm/gtc/constants.hpp>
 #include "AsteroidsGame.hpp"
 #include "GameObject.hpp"
 #include "SpaceShip.hpp"
-#include "Enemy.hpp"
 #include "Meteor.hpp"
+#include "Enemy.hpp"
 
 using namespace sre;
 
-std::shared_ptr<sre::SpriteAtlas> AsteroidsGame::atlas;
+//declaring static fields
 std::vector<std::shared_ptr<GameObject>> AsteroidsGame::gameObjects;
+std::shared_ptr<sre::SpriteAtlas> AsteroidsGame::atlas;
 
 AsteroidsGame::~AsteroidsGame() {}
 
+//passing how many players are playing to the players
 AsteroidsGame::AsteroidsGame(int playerAmount) {
 
     players = playerAmount;
 
+    //clamping values
+    if (players < 1) players = 1;
     if (players > 2) players = 2;
 
     r.setWindowTitle("Asteroids");
@@ -28,11 +28,13 @@ AsteroidsGame::AsteroidsGame(int playerAmount) {
     r.init().withSdlInitFlags(SDL_INIT_EVERYTHING)
             .withSdlWindowFlags(SDL_WINDOW_OPENGL);
 
-    time_t t;                                               // random seed based on time
+    // random seed based on time
+    time_t t;
     srand((unsigned) time(&t));
 
     atlas = SpriteAtlas::create("asteroids.json","asteroids.png");
 
+    //creating all the needed objects
     initObjects();
 
     camera.setWindowCoordinates();
@@ -54,16 +56,20 @@ AsteroidsGame::AsteroidsGame(int playerAmount) {
 
 void AsteroidsGame::update(float deltaTime) {
     for (int i = 0; i < gameObjects.size();i++) {
+        //if the object should be destroyed this frame we can avoid executing the update
         if (gameObjects[i]->queueForRemoval) continue;
         gameObjects[i]->update(deltaTime);
 
+        //stop the game if one SpaceShip died
         if(std::dynamic_pointer_cast<SpaceShip>(gameObjects[i])) {
             auto playerShip = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
             if(playerShip->isDead) {
+                hasLost = true;
                 isRunning = false;
             }
         }
 
+        //update the enemy rotation to look at the corresponding player
         for (int k = 0; k < players; ++k) {
             if(allyShips.size() > 0 && enemyShips.size() > 0){
                 float angle = atan2(enemyShips[k]->position.y - allyShips[k]->position.y,  enemyShips[k]->position.x - allyShips[k]->position.x);
@@ -71,28 +77,27 @@ void AsteroidsGame::update(float deltaTime) {
             }
         }
 
-
-
+        //figure out collisions
         for (int j = 0; j < gameObjects.size();j++) {
+            //if object is self continue
             if(gameObjects[i] == gameObjects[j]) continue;
 
+            //all game objects derive from Collidable, so it's safe to assume the dynamic cast will work
             std::shared_ptr<Collidable> coll1 = std::dynamic_pointer_cast<Collidable> (gameObjects[i]);
             std::shared_ptr<Collidable> coll2 = std::dynamic_pointer_cast<Collidable> (gameObjects[j]);
 
-            float x1 = gameObjects[i]->position.x;
-            float x2 = gameObjects[j]->position.x;
-            float y1 = gameObjects[i]->position.y;
-            float y2 = gameObjects[j]->position.y;
-
             float rSum = coll1->getRadius() + coll2->getRadius();
 
-            if ((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) < rSum*rSum) {
+            //Pythagoras gvng
+            if ((gameObjects[i]->position.x - gameObjects[j]->position.x) * (gameObjects[i]->position.x - gameObjects[j]->position.x) +
+                    (gameObjects[i]->position.y - gameObjects[j]->position.y)*(gameObjects[i]->position.y - gameObjects[j]->position.y) < rSum*rSum) {
                 coll1->onCollision(gameObjects[j]);
                 coll2->onCollision(gameObjects[i]);
             }
         }
     }
 
+    //destroy all doomed objects
     for (int i = 0; i < gameObjects.size();i++) {
         if (gameObjects[i]->queueForRemoval) {
             if(!std::dynamic_pointer_cast<Laser>(gameObjects[i])) {
@@ -130,6 +135,7 @@ void AsteroidsGame::render() {
             .build();
     auto spriteBatchBuilder = SpriteBatch::create();
 
+    //add stars to the batch
     for (int i = 0; i < backgroundStars.size();i++) {
         spriteBatchBuilder.addSprite(backgroundStars[i]);
     }
@@ -158,20 +164,9 @@ void AsteroidsGame::render() {
     ImGui::LabelText("Score", "%i",score);
     ImGui::End();
 
-    bool hasLost = false;
-
-    for (int i = 0; i < gameObjects.size();i++) {
-        if(std::dynamic_pointer_cast<SpaceShip>(gameObjects[i])) {
-            auto ship = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
-            if(ship->isDead) {
-                hasLost = true;
-                endGame();
-            }
-        }
-    }
-
     if (isRunning) return;
 
+    // Win-lose UI
     ImGui::SetNextWindowPos(ImVec2(Renderer::instance->getWindowSize().x/2-90, Renderer::instance->getWindowSize().y/2-25), ImGuiSetCond_Always);
     ImGui::SetNextWindowSize(ImVec2(180, 50), ImGuiSetCond_Always);
     ImGui::Begin(" ", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
@@ -184,6 +179,7 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
     for (int i = 0; i < gameObjects.size();i++) {
         if(isRunning) gameObjects[i]->onKey(event);
 
+        //space restarts if dead
         if(std::dynamic_pointer_cast<SpaceShip>(gameObjects[i])) {
             auto ship = std::dynamic_pointer_cast<SpaceShip>(gameObjects[i]);
             if((ship->isDead || !isRunning) && event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_SPACE) {
@@ -193,15 +189,26 @@ void AsteroidsGame::keyEvent(SDL_Event &event) {
             }
         }
     }
+
     if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_r){
         debugCollisionCircles = !debugCollisionCircles;
     }
 }
 
 void AsteroidsGame::initObjects() {
+
+    //at start, resets game
+
+    hasLost = false;
     backgroundStars.clear();
+    score = 0;
+    gameObjects.clear();
+    allyShips.clear();
+    enemyShips.clear();
+
     auto winSize = sre::Renderer::instance->getDrawableSize();
 
+    //adding stars to the background with random sprites, offsets and rotations
     for (int i = 50; i < winSize.x; i += winSize.x/6) {
         for (int j = 50; j < winSize.y; j += winSize.y/6) {
             sre::Sprite starSprite;
@@ -224,18 +231,15 @@ void AsteroidsGame::initObjects() {
         }
     }
 
-    score = 0;
-    gameObjects.clear();
-    allyShips.clear();
-    enemyShips.clear();
+    //creating the player1 ship
     auto spaceshipOneSprite = atlas->get("playerShip1_orange.png");
-
     auto playerShip = std::make_shared<SpaceShip>(spaceshipOneSprite, PlayerOne,
                                                   glm::vec2(sre::Renderer::instance->getDrawableSize().x / 2,
                                                             sre::Renderer::instance->getDrawableSize().y / 2 - 30));
     gameObjects.push_back(playerShip);
     allyShips.push_back(playerShip);
 
+    //if multiplayer, creating another ship
     if(players > 1) {
         auto spaceshipTwoSprite = atlas->get("playerShip1_green.png");
         auto playerShip2 = std::make_shared<SpaceShip>(spaceshipTwoSprite, PlayerTwo,
@@ -245,6 +249,7 @@ void AsteroidsGame::initObjects() {
         allyShips.push_back(playerShip2);
     }
 
+    //creating one enemy for every player
     auto enemySprite = atlas->get("enemyBlack2.png");
     for (int i = 0; i < players; ++i) {
         auto enemyShip = std::make_shared<EnemyShip>(enemySprite);
@@ -252,8 +257,9 @@ void AsteroidsGame::initObjects() {
         enemyShips.push_back(enemyShip);
     }
 
+    //creating the asteroids
     auto meteorBigSprite = atlas->get("meteorBrown_big4.png");
-    for (int i = 0; i < 2; ++i) {
+    for (int i = 0; i < 5; ++i) {
         gameObjects.push_back(std::make_shared<Meteor>(meteorBigSprite, Big));
     }
 }

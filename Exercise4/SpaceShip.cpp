@@ -3,16 +3,17 @@
 //
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/rotate_vector.hpp>
-#include "SpaceShip.hpp"
 #include "sre/Renderer.hpp"
+#include "SpaceShip.hpp"
 
-SpaceShip::SpaceShip(const sre::Sprite &sprite, PlayerNumber pNum, glm::vec2 pos) : GameObject(sprite) {
-    scale = glm::vec2(0.5f,0.5f);
+SpaceShip::SpaceShip(const sre::Sprite &sprite, PlayerNumber pNum, glm::vec2 pos, float rot) : GameObject(sprite) {
     winSize = sre::Renderer::instance->getDrawableSize();
-    radius = 23;
-    position = pos;
     velocity = glm::vec2(0.0f,0.0f);
+    scale = glm::vec2(0.5f,0.5f);
     playerNumber = pNum;
+    rotation = rot;
+    position = pos;
+    radius = 23;
 }
 
 void SpaceShip::update(float deltaTime) {
@@ -24,6 +25,7 @@ void SpaceShip::update(float deltaTime) {
         if (speed > maxSpeed){
             velocity = velocity * (maxSpeed / speed);
         }
+        // funny behaviour on death
     } else if (isDead) {
         rotation += deltaTime * rotationSpeed;
         velocity = velocity * (1.0f - drag*deltaTime);
@@ -52,7 +54,8 @@ void SpaceShip::update(float deltaTime) {
 }
 
 void SpaceShip::onCollision(std::shared_ptr<GameObject> other) {
-    if (isDead || std::dynamic_pointer_cast<SpaceShip>(other) || std::dynamic_pointer_cast<Laser>(other)) return;
+    if (isDead || std::dynamic_pointer_cast<SpaceShip>(other) ||
+            std::dynamic_pointer_cast<Laser>(other)) return;
     destroySelf();
 }
 
@@ -74,6 +77,7 @@ void SpaceShip::onKey(SDL_Event &keyEvent) {
         rotateCW = keyEvent.type == SDL_KEYDOWN;
     }
 
+    //fire on space up
     if((playerNumber == PlayerOne && keyEvent.key.keysym.sym == SDLK_SPACE) || (playerNumber == PlayerTwo && keyEvent.key.keysym.sym == SDLK_e)) {
         if(keyEvent.type == SDL_KEYUP) {
             fire();
@@ -82,11 +86,13 @@ void SpaceShip::onKey(SDL_Event &keyEvent) {
 }
 
 void SpaceShip::destroySelf() {
+    //replace sprite on death
     isDead = true;
     sprite = AsteroidsGame::atlas->get("bang.png");
 }
 
 void SpaceShip::restart() {
+    //reset death status, sprite and position
     isDead = false;
     sprite = AsteroidsGame::atlas->get("playerShip1_orange.png");
     position = winSize * 0.5f;

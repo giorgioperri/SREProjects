@@ -1,8 +1,8 @@
 #pragma once
 
+#include "AsteroidsGame.hpp"
 #include "GameObject.hpp"
 #include "Collidable.hpp"
-#include "AsteroidsGame.hpp"
 #include "Laser.hpp"
 
 class EnemyShip : public GameObject, public Collidable  {
@@ -17,8 +17,8 @@ public:
     glm::vec2 velocity{};
 private:
     float drag = 0.80f;
-    float maxSpeed = 230.0f;
-    float thrustPower = 600.0f;
+    float maxSpeed = 150.0f;
+    float thrustPower = 400.0f;
     glm::vec2 winSize{};
 };
 

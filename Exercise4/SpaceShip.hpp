@@ -1,8 +1,8 @@
 #pragma once
 
+#include "AsteroidsGame.hpp"
 #include "GameObject.hpp"
 #include "Collidable.hpp"
-#include "AsteroidsGame.hpp"
 #include "Laser.hpp"
 
 enum PlayerNumber {
@@ -10,9 +10,14 @@ enum PlayerNumber {
     PlayerTwo
 };
 
+enum ShipType {
+    Original,
+    Clone
+};
+
 class SpaceShip : public GameObject, public Collidable  {
 public:
-    explicit SpaceShip(const sre::Sprite &sprite, PlayerNumber pNum, glm::vec2 pos);
+    explicit SpaceShip(const sre::Sprite &sprite, PlayerNumber pNum, glm::vec2 pos, float rot = 0);
     ~SpaceShip() override;
     void update(float deltaTime) override;
     void onCollision(std::shared_ptr<GameObject> other) override;
@@ -23,15 +28,15 @@ public:
     bool isDead = false;
     glm::vec2 velocity{};
 private:
-    bool rotateCW = false;
     bool rotateCCW = false;
+    bool rotateCW = false;
     bool thrust = false;
-    float drag = 0.80f;
-    float maxSpeed = 460.0f;
-    float thrustPower = 600.0f;
     float rotationSpeed = 150.0f;
-    glm::vec2 winSize{};
+    float thrustPower = 600.0f;
+    float maxSpeed = 460.0f;
+    float drag = 0.80f;
     PlayerNumber playerNumber;
+    glm::vec2 winSize{};
 };
 
 

@@ -13,11 +13,9 @@ GameObject::GameObject(sre::Sprite sprite)
 {
 }
 
-GameObject::~GameObject(){
-}
+GameObject::~GameObject(){}
 
-void GameObject::update(float deltaTime) {
-}
+void GameObject::update(float deltaTime) {}
 
 void GameObject::render(sre::SpriteBatch::SpriteBatchBuilder& spriteBatchBuilder) {
     sprite.setPosition(position);
@@ -26,7 +24,5 @@ void GameObject::render(sre::SpriteBatch::SpriteBatchBuilder& spriteBatchBuilder
     spriteBatchBuilder.addSprite(sprite);
 }
 
-void GameObject::onKey(SDL_Event &keyEvent) {
-
-}
+void GameObject::onKey(SDL_Event &keyEvent) {}
 
