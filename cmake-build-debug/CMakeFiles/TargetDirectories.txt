@@ -114,3 +114,10 @@
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/install.dir
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/install/local.dir
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise4/CMakeFiles/install/strip.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/Exercise6-Wolf3D.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/edit_cache.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/rebuild_cache.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/list_install_components.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/install.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/install/local.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/install/strip.dir
