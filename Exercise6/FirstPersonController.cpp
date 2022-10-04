@@ -5,6 +5,8 @@
 #include "FirstPersonController.hpp"
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/rotate_vector.hpp>
+#include "glm/gtx/euler_angles.hpp"
+#include <iostream>
 
 using namespace sre;
 using namespace glm;
@@ -19,22 +21,38 @@ FirstPersonController::FirstPersonController(sre::Camera * camera)
 
 
 void FirstPersonController::update(float deltaTime){
-    // todo implement
-    camera->lookAt(position, position + vec3(0,0,-1), vec3{0,1,0});
-    camera->setPositionAndRotation(position, glm::vec3(0,rotation,0));
+
+    auto currentView = camera->getViewTransform();
+
+    mat4 translation = mat4(1.0f);
 
     if (fwd) {
-        position.z -= speed * deltaTime;
+        translation = translation * glm::translate( vec3(0,0,speed * deltaTime));
     }
     if (bwd) {
-        position.z += speed * deltaTime;
+        translation = translation *  glm::translate(vec3(0,0,-speed * deltaTime));
     }
     if (left) {
-        position.x -= speed * deltaTime;
+        translation = translation *  glm::translate(vec3(speed * deltaTime,0,0));
     }
     if (right) {
-        position.x += speed * deltaTime;
+        translation = translation *  glm::translate(vec3(-speed * deltaTime,0,0));
     }
+
+    glm::mat4 rot = glm::eulerAngleY(glm::radians(deltaRotation));
+
+    glm::mat4 newView =
+            rot *
+            translation *
+            currentView;
+
+    camera->setViewTransform(newView);
+
+    vec4 newPos = translation * vec4(position,1);
+
+    position = vec3(newPos.x, newPos.y, newPos.z);
+
+    deltaRotation = 0;
 }
 
 void FirstPersonController::onKey(SDL_Event &event) {
@@ -65,9 +83,9 @@ void FirstPersonController::onKey(SDL_Event &event) {
 }
 
 void FirstPersonController::onMouse(SDL_Event &event) {
-    // Todo implement
-    rotation -= event.motion.xrel / mSens;
-
+    float offset = event.motion.xrel / mSens;
+    rotation += offset;
+    deltaRotation += offset;
 }
 
 void FirstPersonController::setInitialPosition(glm::vec2 position, float rotation) {

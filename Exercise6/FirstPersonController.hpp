@@ -16,11 +16,12 @@ public:
     void setInitialPosition(glm::vec2 position, float rotation);
 
     float rotation = 0;
+    float deltaRotation = 0;
     glm::vec3 position;
 private:
     sre::Camera * camera;
     float speed = 2;
-    float mSens = 2;
+    float mSens = 5;
 
     // todo remove
     bool fwd = false;
