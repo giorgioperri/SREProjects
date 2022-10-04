@@ -19,7 +19,7 @@ void WorldMap::loadMap(std::string filename) {
     values.push_back( { 0, 0, 0,0} ); // v z
     startingPosition.x = 1.5;
     startingPosition.y = 1.5;
-    startingRotation = 22.5;
+    startingRotation = 0;
 
     // using namespace rapidjson;
     // ifstream fis(filename);

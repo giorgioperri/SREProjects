@@ -19,11 +19,13 @@ public:
     glm::vec3 position;
 private:
     sre::Camera * camera;
+    float speed = 2;
+    float mSens = 2;
 
     // todo remove
-    bool fwd;
-    bool bwd;
-    bool left;
-    bool right;
+    bool fwd = false;
+    bool bwd = false;
+    bool left = false;
+    bool right = false;
 };
 
