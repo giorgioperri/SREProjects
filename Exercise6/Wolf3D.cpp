@@ -72,8 +72,21 @@ void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::v
 
     // Incomplete implementation - creates two triangles in the xy-plane
     vertexPositions.insert(vertexPositions.end(),{
-            glm::vec3(-0.5,-0.5,0.5), glm::vec3(0.5,-0.5,0.5), glm::vec3(-0.5,0.5,0.5),
-            glm::vec3(0.5,0.5,0.5), glm::vec3(-0.5,0.5,0.5), glm::vec3(0.5,-0.5,0.5)
+
+            glm::vec3(-0.5,-0.5,1.5), glm::vec3(0.5,-0.5,1.5), glm::vec3(-0.5,0.5,1.5),
+            glm::vec3(0.5,0.5,1.5), glm::vec3(-0.5,0.5,1.5), glm::vec3(0.5,-0.5,1.5),
+
+            glm::vec3(0.5,-0.5,.5), glm::vec3(-0.5,-0.5,.5), glm::vec3(0.5,0.5,.5),
+            glm::vec3(-0.5,0.5,.5), glm::vec3(0.5,0.5,.5), glm::vec3(-0.5,-0.5,.5),
+
+            glm::vec3(0.5,-0.5,1.5), glm::vec3(0.5,-0.5,.5), glm::vec3(0.5,0.5,1.5),
+            glm::vec3(0.5,0.5,0.5), glm::vec3(0.5,0.5,1.5), glm::vec3(0.5,-0.5,.5),
+
+            glm::vec3(-0.5,-0.5,.5), glm::vec3(-0.5,-0.5,1.5), glm::vec3(-0.5,0.5,0.5),
+            glm::vec3(-0.5,0.5,1.5), glm::vec3(-0.5,0.5,.5), glm::vec3(-0.5,-0.5,1.5),
+
+            //glm::vec3(-0.5,0.5,1.5), glm::vec3(-0.5,0.5,0.5), glm::vec3(-0.5,-0.5,.5),
+
     });
 
     glm::vec2 textureSize(2048,4096);

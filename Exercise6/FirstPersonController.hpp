@@ -20,7 +20,7 @@ public:
     glm::vec3 position;
 private:
     sre::Camera * camera;
-    float speed = 2;
+    float speed = 1.1f;
     float mSens = 5;
 
     // todo remove

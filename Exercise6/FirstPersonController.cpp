@@ -22,41 +22,45 @@ FirstPersonController::FirstPersonController(sre::Camera * camera)
 
 void FirstPersonController::update(float deltaTime){
 
-    auto currentView = camera->getViewTransform();
-
-    mat4 translation = mat4(1.0f);
+    vec3 translationVector = vec3(0);
 
     if (fwd) {
-        translation = translation * glm::translate( vec3(0,0,speed * deltaTime));
+        translationVector += vec3(0,0,-(1 + speed) * deltaTime);
     }
     if (bwd) {
-        translation = translation *  glm::translate(vec3(0,0,-speed * deltaTime));
+        translationVector += vec3(0,0,(1 + speed) * deltaTime);
     }
     if (left) {
-        translation = translation *  glm::translate(vec3(speed * deltaTime,0,0));
+        translationVector += vec3(-(1 + speed) * deltaTime,0,0);
     }
     if (right) {
-        translation = translation *  glm::translate(vec3(-speed * deltaTime,0,0));
+        translationVector += vec3((1 + speed) * deltaTime,0,0);
     }
 
-    glm::mat4 rot = glm::eulerAngleY(glm::radians(deltaRotation));
+    rotation += deltaRotation;
 
-    glm::mat4 newView =
-            rot *
-            translation *
-            currentView;
+    //creating the rotation matrix
+    mat4 rotationMatrix = glm::eulerAngleY(radians(rotation));
 
-    camera->setViewTransform(newView);
+    //applying rotation to the translation vector
+    translationVector = vec3(rotationMatrix * vec4(translationVector,1));
 
-    vec4 newPos = translation * vec4(position,1);
+    //creating the result matrix of the rotation * translation
+    mat4 translationMatrix = translate(translationVector);
 
-    position = vec3(newPos.x, newPos.y, newPos.z);
+    //assigning the result matrix to position
+    position = vec3(translationMatrix * vec4(position,1));
+
+    //applying rotation to the forward vector vec3(0,0,-1)
+    vec3 rotatedForward = vec3(rotationMatrix * vec4(0,0,-1,1));
+
+    //rotating the camera to look at the edited forward vector3
+    camera->lookAt(position, position + rotatedForward, vec3(0,1,0));
 
     deltaRotation = 0;
 }
 
 void FirstPersonController::onKey(SDL_Event &event) {
-    // Todo implement
     bool valueToSet = false;
 
     switch (event.type){
@@ -83,9 +87,7 @@ void FirstPersonController::onKey(SDL_Event &event) {
 }
 
 void FirstPersonController::onMouse(SDL_Event &event) {
-    float offset = event.motion.xrel / mSens;
-    rotation += offset;
-    deltaRotation += offset;
+    deltaRotation = event.motion.xrel / mSens;
 }
 
 void FirstPersonController::setInitialPosition(glm::vec2 position, float rotation) {
