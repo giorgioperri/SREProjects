@@ -94,3 +94,5 @@ void FirstPersonController::setInitialPosition(glm::vec2 position, float rotatio
     this->position = glm::vec3(position.x,0,position.y);
     this->rotation = rotation;
 }
+
+

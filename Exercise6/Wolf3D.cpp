@@ -64,28 +64,32 @@ void Wolf3D::render() {
     ImGui::End();
 }
 
-// Creates a textured cube with a side length of 1 (e.g. from -0.5 to 0.5).
+// Creates a textured cube with a side length of 1 (e.g. from -offset to 0.5).
 // The cube must be centered at (x,0,z)
 // The texturing
 void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type){
-    // todo implement this
-
     // Incomplete implementation - creates two triangles in the xy-plane
-    vertexPositions.insert(vertexPositions.end(),{
+    float offset = .5f;
 
-            glm::vec3(-0.5,-0.5,0.5), glm::vec3(0.5,-0.5,0.5), glm::vec3(-0.5,0.5,0.5),
-            glm::vec3(0.5,0.5,0.5), glm::vec3(-0.5,0.5,0.5), glm::vec3(0.5,-0.5,0.5),
+    std::vector<glm::vec3> tempVector = {
+            glm::vec3(-offset,-offset,offset), glm::vec3(offset,-offset,offset), glm::vec3(-offset,offset,offset),
+            glm::vec3(offset,offset,offset), glm::vec3(-offset,offset,offset), glm::vec3(offset,-offset,offset),
 
-            glm::vec3(0.5,-0.5,-0.5), glm::vec3(-0.5,-0.5,-0.5), glm::vec3(0.5,0.5,-0.5),
-            glm::vec3(-0.5,0.5,-0.5), glm::vec3(0.5,0.5,-0.5), glm::vec3(-0.5,-0.5,-0.5),
+            glm::vec3(offset,-offset,-offset), glm::vec3(-offset,-offset,-offset), glm::vec3(offset,offset,-offset),
+            glm::vec3(-offset,offset,-offset), glm::vec3(offset,offset,-offset), glm::vec3(-offset,-offset,-offset),
 
-            glm::vec3(0.5,-0.5,0.5), glm::vec3(0.5,-0.5,-0.5), glm::vec3(0.5,0.5,0.5),
-            glm::vec3(0.5,0.5,-0.5), glm::vec3(0.5,0.5,0.5), glm::vec3(0.5,-0.5,-0.5),
+            glm::vec3(offset,-offset,offset), glm::vec3(offset,-offset,-offset), glm::vec3(offset,offset,offset),
+            glm::vec3(offset,offset,-offset), glm::vec3(offset,offset,offset), glm::vec3(offset,-offset,-offset),
 
-            glm::vec3(-0.5,-0.5,-0.5), glm::vec3(-0.5,-0.5,0.5), glm::vec3(-0.5,0.5,-0.5),
-            glm::vec3(-0.5,0.5,0.5), glm::vec3(-0.5,0.5,-0.5), glm::vec3(-0.5,-0.5,0.5),
+            glm::vec3(-offset,-offset,-offset), glm::vec3(-offset,-offset,offset), glm::vec3(-offset,offset,-offset),
+            glm::vec3(-offset,offset,offset), glm::vec3(-offset,offset,-offset), glm::vec3(-offset,-offset,offset),
+    };
 
-    });
+    for (int i = 0; i < tempVector.size(); ++i) {
+        tempVector[i].x += x;
+        tempVector[i].z += z;
+        vertexPositions.insert(vertexPositions.end(),tempVector[i]);
+    }
 
     glm::vec2 textureSize(2048,4096);
     glm::vec2 tileSize(64,64);
@@ -113,10 +117,10 @@ void Wolf3D::init() {
     std::vector<glm::vec4> textureCoordinates;
 
     for (int x=0;x<map.getWidth();x++){
-        for (int y=0;y<map.getHeight();y++){
-            int field = map.getTile(x,y);
+        for (int z=0;z<map.getHeight();z++){
+            int field = map.getTile(x,z);
             if (field != -1){
-                addCube(vertexPositions,textureCoordinates,x,y,field);
+                addCube(vertexPositions,textureCoordinates, x, z,field);
             }
         }
     }
