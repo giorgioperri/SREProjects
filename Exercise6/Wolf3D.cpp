@@ -96,11 +96,13 @@ void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::v
 
     int doubleTileSize = tileSizeWithBorder.x * 2;
 
-    //i hate hardcoding this 8 but the spritesheet is very weird
-    int yOffset = tileSizeWithBorder.y * floor(type / 8);
+    //i hate hardcoding this 8 but the spritesheet is very weird in order for it to be POT
+    int numberOfTilesInRow = 8;
+
+    int yOffset = tileSizeWithBorder.y * floor(type / numberOfTilesInRow);
 
     if(yOffset != 0) {
-        type = type - (8 * floor(type / 8)) ;
+        type = type - (numberOfTilesInRow * floor(type / numberOfTilesInRow)) ;
     }
 
     type = (type * doubleTileSize);
