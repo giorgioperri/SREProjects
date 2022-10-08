@@ -24,6 +24,9 @@ target_link_libraries(Exercise6-Wolf3D ${all_libs})
 file(COPY level0.json level0.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Debug)
 file(COPY level0.json level0.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Release)
 file(COPY level0.json level0.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY level1.json level0.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Debug)
+file(COPY level1.json level0.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Release)
+file(COPY level1.json level0.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 IF (WIN32)
     # Copy dll files to ${CMAKE_CURRENT_BINARY_DIR}/Debug

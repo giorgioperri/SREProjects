@@ -67,8 +67,7 @@ void Wolf3D::render() {
 // Creates a textured cube with a side length of 1 (e.g. from -offset to 0.5).
 // The cube must be centered at (x,0,z)
 // The texturing
-void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type, int texX, int texY){
-    // Incomplete implementation - creates two triangles in the xy-plane
+void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type){
     float offset = .5f;
 
     std::vector<glm::vec3> tempVector = {
@@ -94,6 +93,10 @@ void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::v
     glm::vec2 textureSize(2048,4096);
     glm::vec2 tileSize(64,64);
     glm::vec2 tileSizeWithBorder(65,65);
+
+    int doubleTileSize = tileSizeWithBorder.x * 2;
+
+    type *= 65;
 
     glm::vec2 min = vec2(type,42*tileSizeWithBorder.y) / textureSize;
     glm::vec2 minAlt = vec2(type + tileSizeWithBorder.x,42*tileSizeWithBorder.y) / textureSize;
@@ -124,7 +127,7 @@ void Wolf3D::init() {
             .build();
     wallMaterial->setTexture(texture);
 
-    map.loadMap("level0.json");
+    map.loadMap("level1.json");
 
     std::vector<glm::vec3> vertexPositions;
     std::vector<glm::vec4> textureCoordinates;

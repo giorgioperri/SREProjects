@@ -12,11 +12,6 @@
 using namespace std;
 
 void WorldMap::loadMap(std::string filename) {
-    // todo implement json loading this instead following
-    values.push_back( { 260, 260, 260, 260} ); // -------> x
-    values.push_back( { 260, -1, -1, 260} ); // |
-    values.push_back( { 260, -1, -1, 260} ); // |
-    values.push_back( { 260, 260, 260, 260} ); // v z
 
     using namespace rapidjson;
     ifstream fis(filename);
@@ -27,9 +22,19 @@ void WorldMap::loadMap(std::string filename) {
     const Value& tileMap = d["tileMap"];
 
     for (int i = 0; i < tileMap.GetArray().Size(); ++i) {
-        for (int j = 0; j < tileMap.GetArray().Size(); ++j) {
-            std::cout << tileMap.GetArray()[i].GetArray()[j].GetInt() << std::endl;
+        std::vector<int> vals;
+        for (int j = 0; j < tileMap.GetArray()[i].Size(); ++j) {
+            vals.push_back(tileMap.GetArray()[i].GetArray()[j].GetInt());
         }
+        values.push_back(vals);
+    }
+
+    for (int i = 0; i < values.size(); ++i) {
+        for (int j = 0; j < values[i].size(); ++j) {
+            std::cout << values[i][j] << std::endl;
+        }
+
+        std::cout << std::endl << std::endl;
     }
 
     startingPosition.x = 1.5;
