@@ -26,8 +26,6 @@ void WorldMap::loadMap(std::string filename) {
 
     const Value& tileMap = d["tileMap"];
 
-    //std::cout << tileMap.GetArray()[0].GetArray().Begin()->GetInt() << std::endl;
-
     for (int i = 0; i < tileMap.GetArray().Size(); ++i) {
         for (int j = 0; j < tileMap.GetArray().Size(); ++j) {
             std::cout << tileMap.GetArray()[i].GetArray()[j].GetInt() << std::endl;
