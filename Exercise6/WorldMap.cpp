@@ -29,14 +29,6 @@ void WorldMap::loadMap(std::string filename) {
         values.push_back(vals);
     }
 
-    for (int i = 0; i < values.size(); ++i) {
-        for (int j = 0; j < values[i].size(); ++j) {
-            std::cout << values[i][j] << std::endl;
-        }
-
-        std::cout << std::endl << std::endl;
-    }
-
     startingPosition.x = 1.5;
     startingPosition.y = 1.5;
     startingRotation = 0;

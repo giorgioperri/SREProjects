@@ -95,11 +95,20 @@ void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::v
     glm::vec2 tileSizeWithBorder(65,65);
 
     int doubleTileSize = tileSizeWithBorder.x * 2;
+    int yOffset = 0;
 
-    type *= 65;
+    yOffset = tileSizeWithBorder.y * floor(type / 8);
 
-    glm::vec2 min = vec2(type,42*tileSizeWithBorder.y) / textureSize;
-    glm::vec2 minAlt = vec2(type + tileSizeWithBorder.x,42*tileSizeWithBorder.y) / textureSize;
+    if(yOffset != 0) {
+        type = type - 8;
+    }
+
+    std::cout << yOffset << std::endl;
+
+    type = (type * doubleTileSize);
+
+    glm::vec2 min = vec2(type,42*tileSizeWithBorder.y - yOffset) / textureSize;
+    glm::vec2 minAlt = vec2(type + tileSizeWithBorder.x,42*tileSizeWithBorder.y - yOffset) / textureSize;
 
     glm::vec2 max = min+tileSize / textureSize;
     glm::vec2 maxAlt = minAlt+tileSize / textureSize;
@@ -127,7 +136,7 @@ void Wolf3D::init() {
             .build();
     wallMaterial->setTexture(texture);
 
-    map.loadMap("level1.json");
+    map.loadMap("level0.json");
 
     std::vector<glm::vec3> vertexPositions;
     std::vector<glm::vec4> textureCoordinates;
