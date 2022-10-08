@@ -24,11 +24,11 @@
 866	2265	1664311113871949126	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/sre/Shader.cpp.o	e9974de33d30e0b0
 3	681	1664311112291806418	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/sre/Camera.cpp.o	f39d61e62e598e3e
 1186	1939	1664311113547995356	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/sre/SpriteBatch.cpp.o	1066c3a813a3feaf
-3	819	1665268324583567419	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/Wolf3D.cpp.o	5952c6b1f559d066
+3	865	1665270877534724363	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/Wolf3D.cpp.o	5952c6b1f559d066
 4	976	1661789146780692123	submodules/SimpleRenderEngine/examples/CMakeFiles/SRE-Example-04_spinning-primitives-tex.dir/04_spinning-primitives-tex.cpp.o	75a99c81217e4326
 3006	3178	1664311114794803000	submodules/SimpleRenderEngine/src/libSRE.a	e5e8092251b8046c
 4263	4418	1661791084276302746	submodules/SimpleRenderEngine/examples/SRE-Example-18_spinning-textured-cube	41504858ccf53bec
-819	922	1665268324690699292	Exercise6/Exercise6-Wolf3D	c2472a802815227e
+865	1007	1665270877681592289	Exercise6/Exercise6-Wolf3D	c2472a802815227e
 1754	2125	1664311113737960147	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/sre/impl/GL.cpp.o	baa6ce095495779d
 2068	3006	1664311114615837064	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/__/submodules/ImGuiColorTextEdit/TextEditor.cpp.o	bfbd15aedc7330d0
 7	697	1664313602861694613	Exercise3/CMakeFiles/Exercise3-Snake.dir/Snake.cpp.o	e7f2cb067144354a
@@ -52,7 +52,7 @@
 1527	2174	1664311113785157016	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/sre/VR.cpp.o	672303fb79265338
 1115	2036	1664311113645546627	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/sre/SpriteAtlas.cpp.o	37cbe0969d3d5bec
 7	876	1664313603039330902	Exercise3/CMakeFiles/Exercise3-Snake.dir/SnakeGUI.cpp.o	d7576d0bf29d75b6
-0	148	1665268340128787460	build.ninja	839a43f4a4f694f
+0	148	1665271141378310758	build.ninja	839a43f4a4f694f
 3	486	1665268063772585944	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/WorldMap.cpp.o	bebf953855b90b09
 4	902	1664368943846370909	Exercise4/CMakeFiles/Exercise4-Asteroids.dir/Laser.cpp.o	62feeb65ae81d31e
 368	405	1664313414201727643	Exercise2/Exercise2-3	c53a72b9af592dde
@@ -62,11 +62,5 @@
 4	689	1665148558117932985	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/FirstPersonController.cpp.o	fc830265b1faa007
 746	1715	1664311113319874094	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/sre/SDLRenderer.cpp.o	e4fe427dbf6545b9
 1044	1754	1664311113364714667	submodules/SimpleRenderEngine/src/CMakeFiles/SRE.dir/sre/Skybox.cpp.o	2b6aab60c82b98c9
-4	954	1665268363189739064	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/Wolf3D.cpp.o	5952c6b1f559d066
-954	1117	1665268363356987541	Exercise6/Exercise6-Wolf3D	c2472a802815227e
-3	818	1665268383297673582	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/Wolf3D.cpp.o	5952c6b1f559d066
-818	925	1665268383408261989	Exercise6/Exercise6-Wolf3D	c2472a802815227e
-2	931	1665268509173894376	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/Wolf3D.cpp.o	5952c6b1f559d066
-931	1060	1665268509306732115	Exercise6/Exercise6-Wolf3D	c2472a802815227e
-3	811	1665268521154239749	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/Wolf3D.cpp.o	5952c6b1f559d066
-811	914	1665268521261224164	Exercise6/Exercise6-Wolf3D	c2472a802815227e
+3	862	1665271172160381786	Exercise6/CMakeFiles/Exercise6-Wolf3D.dir/Wolf3D.cpp.o	5952c6b1f559d066
+862	1015	1665271172316905661	Exercise6/Exercise6-Wolf3D	c2472a802815227e
