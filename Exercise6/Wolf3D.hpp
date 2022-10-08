@@ -13,7 +13,7 @@ private:
     void init();
     void update(float deltaTime);
     void render();
-    void addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type);
+    void addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type, int texX = 0, int texY = 0);
     void renderDebugBricks(sre::RenderPass & renderPass);
     sre::SDLRenderer r;
     sre::Camera camera;

@@ -67,7 +67,7 @@ void Wolf3D::render() {
 // Creates a textured cube with a side length of 1 (e.g. from -offset to 0.5).
 // The cube must be centered at (x,0,z)
 // The texturing
-void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type){
+void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type, int texX, int texY){
     // Incomplete implementation - creates two triangles in the xy-plane
     float offset = .5f;
 
@@ -95,11 +95,24 @@ void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::v
     glm::vec2 tileSize(64,64);
     glm::vec2 tileSizeWithBorder(65,65);
 
-    glm::vec2 min = vec2(0,42*tileSizeWithBorder.y) / textureSize;
+    glm::vec2 min = vec2(type,42*tileSizeWithBorder.y) / textureSize;
+    glm::vec2 minAlt = vec2(type + tileSizeWithBorder.x,42*tileSizeWithBorder.y) / textureSize;
+
     glm::vec2 max = min+tileSize / textureSize;
+    glm::vec2 maxAlt = minAlt+tileSize / textureSize;
+
     textureCoordinates.insert(textureCoordinates.end(),{
             glm::vec4(min.x,min.y,0,0), glm::vec4(max.x,min.y,0,0), glm::vec4(min.x,max.y,0,0),
-            glm::vec4(max.x,max.y,0,0), glm::vec4(min.x,max.y,0,0), glm::vec4(max.x,min.y,0,0)
+            glm::vec4(max.x,max.y,0,0), glm::vec4(min.x,max.y,0,0), glm::vec4(max.x,min.y,0,0),
+
+            glm::vec4(min.x,min.y,0,0), glm::vec4(max.x,min.y,0,0), glm::vec4(min.x,max.y,0,0),
+            glm::vec4(max.x,max.y,0,0), glm::vec4(min.x,max.y,0,0), glm::vec4(max.x,min.y,0,0),
+
+            glm::vec4(minAlt.x,minAlt.y,0,0), glm::vec4(maxAlt.x,minAlt.y,0,0), glm::vec4(minAlt.x,maxAlt.y,0,0),
+            glm::vec4(maxAlt.x,maxAlt.y,0,0), glm::vec4(minAlt.x,maxAlt.y,0,0), glm::vec4(maxAlt.x,minAlt.y,0,0),
+
+            glm::vec4(minAlt.x,minAlt.y,0,0), glm::vec4(maxAlt.x,minAlt.y,0,0), glm::vec4(minAlt.x,maxAlt.y,0,0),
+            glm::vec4(maxAlt.x,maxAlt.y,0,0), glm::vec4(minAlt.x,maxAlt.y,0,0), glm::vec4(maxAlt.x,minAlt.y,0,0),
     });
 }
 
@@ -118,7 +131,7 @@ void Wolf3D::init() {
 
     for (int x=0;x<map.getWidth();x++){
         for (int z=0;z<map.getHeight();z++){
-            int field = map.getTile(x,z);
+            int field = map.getTile(x ,z);
             if (field != -1){
                 addCube(vertexPositions,textureCoordinates, x, z,field);
             }

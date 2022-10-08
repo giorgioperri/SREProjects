@@ -13,19 +13,31 @@ using namespace std;
 
 void WorldMap::loadMap(std::string filename) {
     // todo implement json loading this instead following
-    values.push_back( { 0, 0, 0,0} ); // -------> x
-    values.push_back( { 0,-1,-1,2} ); // |
-    values.push_back( { 0,-1,-1,9} ); // |
-    values.push_back( { 0, 0, 0,0} ); // v z
+    values.push_back( { 260, 260, 260, 260} ); // -------> x
+    values.push_back( { 260, -1, -1, 260} ); // |
+    values.push_back( { 260, -1, -1, 260} ); // |
+    values.push_back( { 260, 260, 260, 260} ); // v z
+
+    using namespace rapidjson;
+    ifstream fis(filename);
+    IStreamWrapper isw(fis);
+    Document d;
+    d.ParseStream(isw);
+
+    const Value& tileMap = d["tileMap"];
+
+    //std::cout << tileMap.GetArray()[0].GetArray().Begin()->GetInt() << std::endl;
+
+    for (int i = 0; i < tileMap.GetArray().Size(); ++i) {
+        for (int j = 0; j < tileMap.GetArray().Size(); ++j) {
+            std::cout << tileMap.GetArray()[i].GetArray()[j].GetInt() << std::endl;
+        }
+    }
+
     startingPosition.x = 1.5;
     startingPosition.y = 1.5;
     startingRotation = 0;
 
-    // using namespace rapidjson;
-    // ifstream fis(filename);
-    // IStreamWrapper isw(fis);
-    // Document d;
-    // d.ParseStream(isw);
 }
 
 int WorldMap::getTile(int x, int y) {
