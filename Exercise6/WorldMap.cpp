@@ -29,9 +29,11 @@ void WorldMap::loadMap(std::string filename) {
         values.push_back(vals);
     }
 
-    startingPosition.x = 1.5;
-    startingPosition.y = 1.5;
-    startingRotation = 0;
+    const Value& spawn = d["spawn"];
+
+    startingPosition.x = spawn.GetObject()["x"].GetFloat();
+    startingPosition.y = spawn.GetObject()["y"].GetFloat();
+    startingRotation = spawn.GetObject()["angle"].GetFloat();
 
 }
 

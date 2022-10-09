@@ -17,10 +17,9 @@ Wolf3D::Wolf3D()
     r.init();
     init();
 
-//     Enable mouse lock
+     //Enable mouse lock
      SDL_SetWindowGrab(r.getSDLWindow(),SDL_TRUE);
      SDL_SetRelativeMouseMode(SDL_TRUE);
-
 
     r.frameUpdate = [&](float deltaTime){
         update(deltaTime);
@@ -64,9 +63,14 @@ void Wolf3D::render() {
     ImGui::End();
 }
 
-// Creates a textured cube with a side length of 1 (e.g. from -offset to 0.5).
-// The cube must be centered at (x,0,z)
-// The texturing
+void Wolf3D::addFloorAndCeil(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, float size) {
+    float internalSize = (size / 2);
+    vertexPositions.insert(vertexPositions.end(), {
+            glm::vec3(-internalSize,-.5,internalSize), glm::vec3(internalSize,-.5,internalSize), glm::vec3(-internalSize,-.5,-internalSize),
+            glm::vec3(internalSize,-.5,-internalSize), glm::vec3(-internalSize,-.5,-internalSize), glm::vec3(internalSize,-.5, internalSize),
+    });
+}
+
 void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type){
     float offset = .5f;
 
@@ -149,6 +153,8 @@ void Wolf3D::init() {
             }
         }
     }
+
+    addFloorAndCeil(vertexPositions,textureCoordinates, 30);
 
     fpsController.setInitialPosition(map.getStartingPosition(), map.getStartingRotation());
 

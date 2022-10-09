@@ -14,6 +14,7 @@ private:
     void update(float deltaTime);
     void render();
     void addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, int x, int z, int type);
+    void addFloorAndCeil(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, float size = 1);
     void renderDebugBricks(sre::RenderPass & renderPass);
     sre::SDLRenderer r;
     sre::Camera camera;
