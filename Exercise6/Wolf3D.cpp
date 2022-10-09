@@ -48,6 +48,7 @@ void Wolf3D::render() {
             .build();
 
     renderPass.draw(walls, glm::mat4(1), wallMaterial);
+    renderPass.draw(floorMesh, glm::mat4(1), floorMaterial);
 
     if (debugBricks){
         renderDebugBricks(renderPass);
@@ -63,14 +64,21 @@ void Wolf3D::render() {
     ImGui::End();
 }
 
-void Wolf3D::addFloorAndCeil(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, float size) {
+void Wolf3D::addFloorAndCeil(std::vector<glm::vec3>& floorVertexPositions, std::vector<glm::vec4>& colors, float size) {
     float hSize = (size / 2);
-    vertexPositions.insert(vertexPositions.end(), {
+    floorVertexPositions.insert(floorVertexPositions.end(), {
+            //floor
             glm::vec3(-hSize,-.5,hSize), glm::vec3(hSize,-.5,hSize), glm::vec3(-hSize,-.5,-hSize),
             glm::vec3(hSize,-.5,-hSize), glm::vec3(-hSize,-.5,-hSize), glm::vec3(hSize,-.5, hSize),
 
+            //ceil
             glm::vec3(hSize,.5,hSize), glm::vec3(-hSize,.5,hSize), glm::vec3(hSize,.5,-hSize),
             glm::vec3(hSize,.5,-hSize), glm::vec3(-hSize,.5,hSize), glm::vec3(-hSize,.5,-hSize),
+    });
+
+    colors.insert(colors.end(), {
+            glm::vec4(0.44,0.44,0.44,1), glm::vec4(0.44,0.44,0.44,1), glm::vec4(0.44,0.44,0.44,1),
+            glm::vec4(0.44,0.44,0.44,1), glm::vec4(0.44,0.44,0.44,1), glm::vec4(0.44,0.44,0.44,1),
     });
 }
 
@@ -78,15 +86,19 @@ void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::v
     float offset = .5f;
 
     std::vector<glm::vec3> tempVector = {
+            //front
             glm::vec3(-offset,-offset,offset), glm::vec3(offset,-offset,offset), glm::vec3(-offset,offset,offset),
             glm::vec3(offset,offset,offset), glm::vec3(-offset,offset,offset), glm::vec3(offset,-offset,offset),
 
+            //back
             glm::vec3(offset,-offset,-offset), glm::vec3(-offset,-offset,-offset), glm::vec3(offset,offset,-offset),
             glm::vec3(-offset,offset,-offset), glm::vec3(offset,offset,-offset), glm::vec3(-offset,-offset,-offset),
 
+            //left
             glm::vec3(offset,-offset,offset), glm::vec3(offset,-offset,-offset), glm::vec3(offset,offset,offset),
             glm::vec3(offset,offset,-offset), glm::vec3(offset,offset,offset), glm::vec3(offset,-offset,-offset),
 
+            //right
             glm::vec3(-offset,-offset,-offset), glm::vec3(-offset,-offset,offset), glm::vec3(-offset,offset,-offset),
             glm::vec3(-offset,offset,offset), glm::vec3(-offset,offset,-offset), glm::vec3(-offset,-offset,offset),
     };
@@ -103,7 +115,7 @@ void Wolf3D::addCube(std::vector<glm::vec3>& vertexPositions, std::vector<glm::v
 
     int doubleTileSize = tileSizeWithBorder.x * 2;
 
-    //i hate hardcoding this 8 but the spritesheet is very weird in order for it to be POT
+    //I hate hardcoding this 8 but the spritesheet is very weird in order for it to be POT
     int numberOfTilesInRow = 8;
 
     int yOffset = tileSizeWithBorder.y * floor(type / numberOfTilesInRow);
@@ -143,27 +155,38 @@ void Wolf3D::init() {
             .build();
     wallMaterial->setTexture(texture);
 
+    floorMaterial = Shader::getUnlit()->createMaterial();
+    auto color = sre::Color(vec4(0.44,0.44,0.44,1));
+    floorMaterial->setColor(color);
+
     map.loadMap("level0.json");
 
-    std::vector<glm::vec3> vertexPositions;
+    std::vector<glm::vec3> wallsVertexPositions;
+    std::vector<glm::vec3> floorVertexPositions;
     std::vector<glm::vec4> textureCoordinates;
+    std::vector<glm::vec4> floorColors;
 
     for (int x=0;x<map.getWidth();x++){
         for (int z=0;z<map.getHeight();z++){
             int field = map.getTile(x ,z);
             if (field != -1){
-                addCube(vertexPositions,textureCoordinates, x, z,field);
+                addCube(wallsVertexPositions, textureCoordinates, x, z, field);
             }
         }
     }
 
-    addFloorAndCeil(vertexPositions,textureCoordinates, 20);
+    addFloorAndCeil(floorVertexPositions, floorColors, 20);
 
     fpsController.setInitialPosition(map.getStartingPosition(), map.getStartingRotation());
 
     walls = Mesh::create()
-            .withPositions(vertexPositions)
+            .withPositions(wallsVertexPositions)
             .withUVs(textureCoordinates)
+            .build();
+
+    floorMesh = Mesh::create()
+            .withPositions(floorVertexPositions)
+            .withColors(floorColors)
             .build();
 }
 
