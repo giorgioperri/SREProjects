@@ -49,6 +49,7 @@ void Wolf3D::render() {
 
     renderPass.draw(walls, glm::mat4(1), wallMaterial);
     renderPass.draw(floorMesh, glm::mat4(1), floorMaterial);
+    renderPass.draw(ceilMesh, glm::mat4(1), ceilMaterial);
 
     if (debugBricks){
         renderDebugBricks(renderPass);
@@ -64,21 +65,18 @@ void Wolf3D::render() {
     ImGui::End();
 }
 
-void Wolf3D::addFloorAndCeil(std::vector<glm::vec3>& floorVertexPositions, std::vector<glm::vec4>& colors, float size) {
+void Wolf3D::addFloorAndCeil(std::vector<glm::vec3>& floorVertexPositions, std::vector<glm::vec3>& ceilVertexPositions, float size) {
     float hSize = (size / 2);
     floorVertexPositions.insert(floorVertexPositions.end(), {
             //floor
             glm::vec3(-hSize,-.5,hSize), glm::vec3(hSize,-.5,hSize), glm::vec3(-hSize,-.5,-hSize),
             glm::vec3(hSize,-.5,-hSize), glm::vec3(-hSize,-.5,-hSize), glm::vec3(hSize,-.5, hSize),
+    });
 
+    ceilVertexPositions.insert(ceilVertexPositions.end(), {
             //ceil
             glm::vec3(hSize,.5,hSize), glm::vec3(-hSize,.5,hSize), glm::vec3(hSize,.5,-hSize),
             glm::vec3(hSize,.5,-hSize), glm::vec3(-hSize,.5,hSize), glm::vec3(-hSize,.5,-hSize),
-    });
-
-    colors.insert(colors.end(), {
-            glm::vec4(0.44,0.44,0.44,1), glm::vec4(0.44,0.44,0.44,1), glm::vec4(0.44,0.44,0.44,1),
-            glm::vec4(0.44,0.44,0.44,1), glm::vec4(0.44,0.44,0.44,1), glm::vec4(0.44,0.44,0.44,1),
     });
 }
 
@@ -156,15 +154,19 @@ void Wolf3D::init() {
     wallMaterial->setTexture(texture);
 
     floorMaterial = Shader::getUnlit()->createMaterial();
-    auto color = sre::Color(vec4(0.44,0.44,0.44,1));
-    floorMaterial->setColor(color);
+    auto floorColor = sre::Color(vec4(0.44,0.44,0.44,1));
+    floorMaterial->setColor(floorColor);
+
+    ceilMaterial = Shader::getUnlit()->createMaterial();
+    auto ceilColor = sre::Color(vec4(0.22,0.22,0.22,1));
+    ceilMaterial->setColor(ceilColor);
 
     map.loadMap("level0.json");
 
     std::vector<glm::vec3> wallsVertexPositions;
     std::vector<glm::vec3> floorVertexPositions;
+    std::vector<glm::vec3> ceilVertexPositions;
     std::vector<glm::vec4> textureCoordinates;
-    std::vector<glm::vec4> floorColors;
 
     for (int x=0;x<map.getWidth();x++){
         for (int z=0;z<map.getHeight();z++){
@@ -175,7 +177,7 @@ void Wolf3D::init() {
         }
     }
 
-    addFloorAndCeil(floorVertexPositions, floorColors, 20);
+    addFloorAndCeil(floorVertexPositions, ceilVertexPositions, 20);
 
     fpsController.setInitialPosition(map.getStartingPosition(), map.getStartingRotation());
 
@@ -186,7 +188,10 @@ void Wolf3D::init() {
 
     floorMesh = Mesh::create()
             .withPositions(floorVertexPositions)
-            .withColors(floorColors)
+            .build();
+
+    ceilMesh = Mesh::create()
+            .withPositions(ceilVertexPositions)
             .build();
 }
 
