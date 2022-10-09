@@ -64,10 +64,13 @@ void Wolf3D::render() {
 }
 
 void Wolf3D::addFloorAndCeil(std::vector<glm::vec3>& vertexPositions, std::vector<glm::vec4>& textureCoordinates, float size) {
-    float internalSize = (size / 2);
+    float hSize = (size / 2);
     vertexPositions.insert(vertexPositions.end(), {
-            glm::vec3(-internalSize,-.5,internalSize), glm::vec3(internalSize,-.5,internalSize), glm::vec3(-internalSize,-.5,-internalSize),
-            glm::vec3(internalSize,-.5,-internalSize), glm::vec3(-internalSize,-.5,-internalSize), glm::vec3(internalSize,-.5, internalSize),
+            glm::vec3(-hSize,-.5,hSize), glm::vec3(hSize,-.5,hSize), glm::vec3(-hSize,-.5,-hSize),
+            glm::vec3(hSize,-.5,-hSize), glm::vec3(-hSize,-.5,-hSize), glm::vec3(hSize,-.5, hSize),
+
+            glm::vec3(hSize,.5,hSize), glm::vec3(-hSize,.5,hSize), glm::vec3(hSize,.5,-hSize),
+            glm::vec3(hSize,.5,-hSize), glm::vec3(-hSize,.5,hSize), glm::vec3(-hSize,.5,-hSize),
     });
 }
 
@@ -154,7 +157,7 @@ void Wolf3D::init() {
         }
     }
 
-    addFloorAndCeil(vertexPositions,textureCoordinates, 30);
+    addFloorAndCeil(vertexPositions,textureCoordinates, 20);
 
     fpsController.setInitialPosition(map.getStartingPosition(), map.getStartingRotation());
 
