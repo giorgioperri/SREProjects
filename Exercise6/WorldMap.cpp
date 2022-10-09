@@ -35,6 +35,17 @@ void WorldMap::loadMap(std::string filename) {
     startingPosition.y = spawn.GetObject()["y"].GetFloat();
     startingRotation = spawn.GetObject()["angle"].GetFloat();
 
+    const Value& floorCol = d["floorColor"];
+    const Value& ceilCol = d["ceilColor"];
+
+    std::cout << floorCol[0].GetFloat() << std::endl;
+
+    floorColor = glm::vec4(floorCol[0].GetFloat(), floorCol[1].GetFloat(),
+                           floorCol[2].GetFloat(), floorCol[3].GetFloat());
+
+    ceilColor = glm::vec4(ceilCol[0].GetFloat(), ceilCol[1].GetFloat(),
+                          ceilCol[2].GetFloat(), ceilCol[3].GetFloat());
+
 }
 
 int WorldMap::getTile(int x, int y) {

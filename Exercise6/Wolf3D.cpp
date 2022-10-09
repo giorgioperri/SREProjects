@@ -153,15 +153,15 @@ void Wolf3D::init() {
             .build();
     wallMaterial->setTexture(texture);
 
+    map.loadMap("level0.json");
+
     floorMaterial = Shader::getUnlit()->createMaterial();
-    auto floorColor = sre::Color(vec4(0.44,0.44,0.44,1));
+    auto floorColor = sre::Color(map.getFloorColor());
     floorMaterial->setColor(floorColor);
 
     ceilMaterial = Shader::getUnlit()->createMaterial();
-    auto ceilColor = sre::Color(vec4(0.22,0.22,0.22,1));
+    auto ceilColor = sre::Color(map.getCeilColor());
     ceilMaterial->setColor(ceilColor);
-
-    map.loadMap("level0.json");
 
     std::vector<glm::vec3> wallsVertexPositions;
     std::vector<glm::vec3> floorVertexPositions;
