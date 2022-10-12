@@ -6,11 +6,9 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/rotate_vector.hpp>
 #include "glm/gtx/euler_angles.hpp"
-#include <iostream>
 
 using namespace sre;
 using namespace glm;
-
 
 FirstPersonController::FirstPersonController(sre::Camera * camera)
 :camera(camera)
@@ -37,7 +35,7 @@ void FirstPersonController::update(float deltaTime){
         translationVector += vec3((1 + speed) * deltaTime,0,0);
     }
 
-    rotation += deltaRotation;
+    rotation -= deltaRotation;
 
     //creating the rotation matrix
     mat4 rotationMatrix = glm::eulerAngleY(radians(rotation));
