@@ -29,6 +29,8 @@ public:
     static BirdGame* instance;
 
     void setGameState(GameState newState);
+
+    float birdX = 0;
 private:
     sre::SDLRenderer r;
 

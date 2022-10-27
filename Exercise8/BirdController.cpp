@@ -23,7 +23,7 @@ bool BirdController::onKey(SDL_Event &event, std::shared_ptr<PhysicsComponent> c
         }
 
     } else if (event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_SPACE){
-        std::cout << "some key released" << std::endl;
+
     }
     return false;
 }

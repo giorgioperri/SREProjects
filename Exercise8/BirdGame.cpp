@@ -118,6 +118,20 @@ void BirdGame::init() {
         so->setSprite(spriteTop);
     }
 
+    auto floorCollider = createGameObject();
+    floorCollider->name = "Floor";
+    floorCollider->setPosition({birdObj->getPosition().x + 100,130});
+    auto floorPhysics = floorCollider->addComponent<PhysicsComponent>();
+    floorPhysics->initBox(b2_kinematicBody,glm::vec2(250/physicsScale,1/physicsScale), glm::vec2(floorCollider->getPosition().x/physicsScale, floorCollider->getPosition().y/physicsScale), 1);
+    floorPhysics->setLinearVelocity(glm::vec2(phys->getLinearVelocity().x,0));
+
+    auto ceilCollider = createGameObject();
+    ceilCollider->name = "Ceiling";
+    ceilCollider->setPosition({birdObj->getPosition().x + 100,600});
+    auto ceilPhysics = ceilCollider->addComponent<PhysicsComponent>();
+    ceilPhysics->initBox(b2_kinematicBody,glm::vec2(250/physicsScale,1/physicsScale), glm::vec2(ceilCollider->getPosition().x/physicsScale, ceilCollider->getPosition().y/physicsScale), 1);
+    ceilPhysics->setLinearVelocity(glm::vec2(phys->getLinearVelocity().x,0));
+
     background1Component.init("background.png");
     background2Component.init("background2.png");
 }
@@ -132,6 +146,7 @@ void BirdGame::update(float time) {
                 gameState = GameState::GameOver;
             }
         }
+
         sceneObjects[i]->update(time);
     }
 }
