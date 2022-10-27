@@ -139,3 +139,4 @@ App_Data/*.ldf
 
 .idea/
 .DS_Store
+/cmake-build-debug/

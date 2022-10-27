@@ -121,3 +121,10 @@
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/install.dir
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/install/local.dir
 /Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise6/CMakeFiles/install/strip.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise8/CMakeFiles/Exercise8-Bird.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise8/CMakeFiles/edit_cache.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise8/CMakeFiles/rebuild_cache.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise8/CMakeFiles/list_install_components.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise8/CMakeFiles/install.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise8/CMakeFiles/install/local.dir
+/Users/giorgioperri/Desktop/ITU/Game Programming/Exercises/SimpleRenderEngineProjectFork/cmake-build-debug/Exercise8/CMakeFiles/install/strip.dir
