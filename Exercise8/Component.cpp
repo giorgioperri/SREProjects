@@ -21,7 +21,7 @@ GameObject *Component::getGameObject() {
     return gameObject;
 }
 
-bool Component::onKey(SDL_Event &event) {
+bool Component::onKey(SDL_Event &event, std::shared_ptr<PhysicsComponent> comp) {
     return false;
 }
 

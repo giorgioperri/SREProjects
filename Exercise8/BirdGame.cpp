@@ -161,6 +161,9 @@ void BirdGame::render() {
 void BirdGame::onKey(SDL_Event &event) {
     for (auto & gameObject: sceneObjects) {
         for (auto & c : gameObject->getComponents()){
+            if(dynamic_pointer_cast<BirdController>(c) != nullptr) {
+                bool consumed = c->onKey(event, c->getGameObject()->getComponent<PhysicsComponent>());
+            }
             bool consumed = c->onKey(event);
             if (consumed){
                 return;
