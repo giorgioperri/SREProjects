@@ -11,5 +11,7 @@ public:
     void onCollisionStart(PhysicsComponent *comp) override;
 
     void onCollisionEnd(PhysicsComponent *comp) override;
+
+    bool isDead = false;
 private:
 };

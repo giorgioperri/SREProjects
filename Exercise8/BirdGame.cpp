@@ -92,6 +92,10 @@ void BirdGame::init() {
         float xOffset = xVariation * cos(i*curve*0.2f);
         glm::vec2 pos{i*300+xOffset,spriteBottom.getSpriteSize().y/2 + sin(i*curve)*heighVariation};
         obj->setPosition(pos);
+
+        auto phys = obj->addComponent<PhysicsComponent>();
+        phys->initBox(b2_staticBody,glm::vec2(25/physicsScale,160/physicsScale), glm::vec2(obj->getPosition().x/physicsScale, obj->getPosition().y/physicsScale), 1);
+
         so->setSprite(spriteBottom);
 
         glm::vec2 s { spriteBottom.getSpriteSize().x * spriteBottom.getScale().x/2, spriteBottom.getSpriteSize().y * spriteBottom.getScale().y/2};
@@ -106,6 +110,10 @@ void BirdGame::init() {
         float xOffset = xVariation * cos(i*curve*0.2f);
         glm::vec2 pos{ i*300+xOffset, windowSize.y-spriteTop.getSpriteSize().y/2 + sin(i*curve)*heighVariation};
         obj->setPosition(pos);
+
+        auto phys = obj->addComponent<PhysicsComponent>();
+        phys->initBox(b2_staticBody,glm::vec2(25/physicsScale,160/physicsScale), glm::vec2(obj->getPosition().x/physicsScale, obj->getPosition().y/physicsScale), 1);
+
         glm::vec2 s { spriteTop.getSpriteSize().x * spriteTop.getScale().x/2, spriteTop.getSpriteSize().y * spriteTop.getScale().y/2};
         so->setSprite(spriteTop);
     }
@@ -119,6 +127,11 @@ void BirdGame::update(float time) {
         updatePhysics();
     }
     for (int i=0;i<sceneObjects.size();i++){
+        for (auto & c : sceneObjects[i]->getComponents()){
+            if(dynamic_pointer_cast<BirdController>(c) != nullptr && dynamic_pointer_cast<BirdController>(c)->isDead) {
+                gameState = GameState::GameOver;
+            }
+        }
         sceneObjects[i]->update(time);
     }
 }

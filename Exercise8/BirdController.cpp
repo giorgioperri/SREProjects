@@ -30,6 +30,7 @@ bool BirdController::onKey(SDL_Event &event, std::shared_ptr<PhysicsComponent> c
 
 void BirdController::onCollisionStart(PhysicsComponent *comp) {
     std::cout << "bird collided with something" << std::endl;
+    /* if is not coin */ isDead = true;
 }
 
 void BirdController::onCollisionEnd(PhysicsComponent *comp) {
