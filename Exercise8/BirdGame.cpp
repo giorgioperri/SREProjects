@@ -79,6 +79,10 @@ void BirdGame::init() {
 
     auto spriteBottom = spriteAtlas->get("column_bottom.png");
     spriteBottom.setScale({2,2});
+
+    auto coinSprite = spriteAtlas->get("coin.png");
+    coinSprite.setScale({1.3,1.3});
+
     float curve = 250;
     int length = 50;
     float heighVariation = 80;
@@ -87,19 +91,32 @@ void BirdGame::init() {
     for (int i=0;i<length;i++) {
         auto obj = createGameObject();
         obj->name = "Wall bottom";
+
+        auto coinObj = createGameObject();
+        coinObj->name = "Coin";
+
         auto so = obj->addComponent<SpriteComponent>();
+        auto spriteComp = coinObj->addComponent<SpriteComponent>();
 
         float xOffset = xVariation * cos(i*curve*0.2f);
+
         glm::vec2 pos{i*300+xOffset,spriteBottom.getSpriteSize().y/2 + sin(i*curve)*heighVariation};
         obj->setPosition(pos);
+        coinObj->setPosition({pos.x, pos.y + 220});
 
         auto phys = obj->addComponent<PhysicsComponent>();
         phys->initBox(b2_staticBody,glm::vec2(25/physicsScale,160/physicsScale), glm::vec2(obj->getPosition().x/physicsScale, obj->getPosition().y/physicsScale), 1);
 
+        auto coinPhys = coinObj->addComponent<PhysicsComponent>();
+        coinPhys->initCircle(b2_staticBody, 12/physicsScale, {coinObj->getPosition()/physicsScale}, 1);
+        coinPhys->setSensor(true);
+
         so->setSprite(spriteBottom);
+        spriteComp->setSprite(coinSprite);
 
         glm::vec2 s { spriteBottom.getSpriteSize().x * spriteBottom.getScale().x/2, spriteBottom.getSpriteSize().y * spriteBottom.getScale().y/2};
     }
+
     auto spriteTop = spriteAtlas->get("column_top.png");
     spriteTop.setScale({2,2});
     for (int i=0;i<length;i++){
@@ -292,14 +309,22 @@ void BirdGame::handleContact(b2Contact *contact, bool begin) {
         auto & bComponents = physB->second->getGameObject()->getComponents();
         for (auto & c : aComponents){
             if (begin){
-                c->onCollisionStart(physB->second);
+                if (!physB->second->isSensor()) {
+                    c->onCollisionStart(physB->second);
+                } else {
+                    physB->second->getGameObject()->removeComponent(physB->second->getGameObject()->getComponent<SpriteComponent>());
+                }
             } else {
                 c->onCollisionEnd(physB->second);
             }
         }
         for (auto & c : bComponents){
             if (begin){
-                c->onCollisionStart(physA->second);
+                if (!physA->second->isSensor()) {
+                    c->onCollisionStart(physA->second);
+                } else {
+                    physB->second->getGameObject()->removeComponent(physB->second->getGameObject()->getComponent<SpriteComponent>());
+                }
             } else {
                 c->onCollisionEnd(physA->second);
             }
