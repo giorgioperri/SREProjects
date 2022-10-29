@@ -163,8 +163,13 @@ void BirdGame::update(float time) {
                 gameState = GameState::GameOver;
             }
         }
+        
+        if(sceneObjects[i]->queueForRemoval) {
+            sceneObjects.erase(std::remove(sceneObjects.begin(), sceneObjects.end(), sceneObjects[i]), sceneObjects.end());
+        }
 
         sceneObjects[i]->update(time);
+
     }
 }
 
@@ -312,7 +317,7 @@ void BirdGame::handleContact(b2Contact *contact, bool begin) {
                 if (!physB->second->isSensor()) {
                     c->onCollisionStart(physB->second);
                 } else {
-                    physB->second->getGameObject()->removeComponent(physB->second->getGameObject()->getComponent<SpriteComponent>());
+                    physB->second->getGameObject()->queueForRemoval = true;
                 }
             } else {
                 c->onCollisionEnd(physB->second);
@@ -323,7 +328,7 @@ void BirdGame::handleContact(b2Contact *contact, bool begin) {
                 if (!physA->second->isSensor()) {
                     c->onCollisionStart(physA->second);
                 } else {
-                    physB->second->getGameObject()->removeComponent(physB->second->getGameObject()->getComponent<SpriteComponent>());
+                    physB->second->getGameObject()->queueForRemoval = true;
                 }
             } else {
                 c->onCollisionEnd(physA->second);

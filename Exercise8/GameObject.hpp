@@ -35,6 +35,8 @@ public:
     const std::vector<std::shared_ptr<Component>>& getComponents();
 
     std::string name = "_";
+
+    bool queueForRemoval;
 private:
     GameObject() = default;
     std::vector<std::shared_ptr<Component>> components;
