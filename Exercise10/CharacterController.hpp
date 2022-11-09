@@ -45,4 +45,8 @@ private:
     float radius;
     bool left = false;
     bool right = false;
+    bool isWalk1 = false;
+    bool isFlyUp = false;
+    float animTime;
+    float spriteUpdateFreq = .300f;
 };

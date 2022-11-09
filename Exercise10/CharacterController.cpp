@@ -20,7 +20,6 @@ CharacterController::CharacterController(GameObject *gameObject) : Component(gam
     characterPhysics->getFixture()->SetRestitution(0);
     characterPhysics->fixRotation();
     spriteComponent = gameObject->getComponent<SpriteComponent>();
-
 }
 
 bool CharacterController::onKey(SDL_Event &event) {
@@ -102,8 +101,33 @@ void CharacterController::setSprites(sre::Sprite standing, sre::Sprite walk1, sr
 }
 
 void CharacterController::updateSprite(float deltaTime) {
+    animTime += deltaTime;
     auto velocity = characterPhysics->getLinearVelocity();
-    // todo implement
+
+    if (velocity == glm::vec2(0, 0))
+    {
+        spriteComponent->setSprite(standing);
+    } else {
+        if(isGrounded) {
+            if(animTime >= spriteUpdateFreq) {
+                isWalk1 = !isWalk1;
+                animTime = 0;
+            }
+            spriteComponent->setSprite(isWalk1 ? walk1 : walk2);
+        }
+    }
+
+    if(velocity.y != 0) {
+        if(animTime >= spriteUpdateFreq) {
+            isFlyUp = !isFlyUp;
+            animTime = 0;
+        }
+        spriteComponent->setSprite(velocity.y > 0 ? (isFlyUp ? flyUp : fly) : flyDown);
+    }
+
+    sre::Sprite tempSprite = spriteComponent->getSprite();
+    tempSprite.setFlip(left ? glm::bvec2(true, false) : glm::bvec2(false, false));
+    spriteComponent->setSprite(tempSprite);
 }
 
 

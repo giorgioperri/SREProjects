@@ -5,6 +5,7 @@
 #include "MovingPlatformComponent.hpp"
 #include "PlatformComponent.hpp"
 #include "GameObject.hpp"
+#include <iostream>
 
 MovingPlatformComponent::MovingPlatformComponent(GameObject *gameObject) : Component(gameObject)
 {
@@ -14,12 +15,14 @@ MovingPlatformComponent::MovingPlatformComponent(GameObject *gameObject) : Compo
 void MovingPlatformComponent::update(float deltaTime) {
     totalTime += deltaTime;
 
-    // todo replace with easing function
-    if (fmod(totalTime,2)>1){
-        platformComponent->moveTo(movementEnd);
-    } else {
-        platformComponent->moveTo(movementStart);
-    }
+    float sin = glm::sin(totalTime);
+    float v = glm::smoothstep(0.0f, 1.0f, sin);
+
+    float sinRemap = 0 + (sin - -1) * (1 - 0) / (1 - -1);
+
+    auto pos = glm::mix(movementStart, movementEnd, sinRemap);
+
+    platformComponent->moveTo(pos);
 }
 
 void MovingPlatformComponent::setMovementStart(glm::vec2 pos) {

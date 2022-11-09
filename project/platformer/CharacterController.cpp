@@ -104,6 +104,11 @@ void CharacterController::setSprites(sre::Sprite standing, sre::Sprite walk1, sr
 void CharacterController::updateSprite(float deltaTime) {
     auto velocity = characterPhysics->getLinearVelocity();
     // todo implement
+    if(velocity == glm::vec2(0,0)) {
+        this->spriteComponent->setSprite(standing);
+    } else {
+        this->spriteComponent->setSprite(walk1);
+    }
 }
 
 
