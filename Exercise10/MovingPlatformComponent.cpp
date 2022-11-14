@@ -16,7 +16,6 @@ void MovingPlatformComponent::update(float deltaTime) {
     totalTime += deltaTime;
 
     float sin = glm::sin(totalTime);
-    float v = glm::smoothstep(0.0f, 1.0f, sin);
 
     float sinRemap = 0 + (sin - -1) * (1 - 0) / (1 - -1);
 
